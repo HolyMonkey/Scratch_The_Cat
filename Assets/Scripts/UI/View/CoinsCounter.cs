@@ -10,12 +10,13 @@ public class CoinsCounter : MonoBehaviour
     private int _currentCoins;
 
     public int TotalCoins { get; set; }
+    public int CoinsForLevel { get; set; }
 
-    private void Update()
+    private void Update ()
     {
         if (_currentCoins < TotalCoins)
         {
-            _currentCoins ++;
+            _currentCoins++;
             CoinsChanged?.Invoke();
         }
     }

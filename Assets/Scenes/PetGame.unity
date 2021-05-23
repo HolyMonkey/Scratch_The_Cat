@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311926, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2734,7 +2734,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _animation
       value: 
-      objectReference: {fileID: 7400000, guid: ca2a6810ab16ef24da6dc1b5cc7c9223, type: 2}
+      objectReference: {fileID: 7400000, guid: 45f83008bf38968499cb3cf0738a2cb7, type: 2}
     - target: {fileID: 7748545669183232600, guid: f36016dadb123c340b5ecde74fed8252,
         type: 3}
       propertyPath: m_Name
@@ -2844,6 +2844,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545669796627066, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545669796627066, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545669796627066, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545669796627066, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545670368731408, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545670368731408, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7748545670368731408, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f36016dadb123c340b5ecde74fed8252, type: 3}
@@ -5250,6 +5285,7 @@ MonoBehaviour:
   - {fileID: 418299521322234156}
   - {fileID: 7221477785414236891}
   _currentScoreView: {fileID: 439109906}
+  _secondsBeforeShowOverScreen: 2.5
 --- !u!124 &682866188
 Behaviour:
   m_ObjectHideFlags: 0
@@ -84530,6 +84566,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1571619952}
     m_Modifications:
+    - target: {fileID: 3397201606520657898, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4206653771543209520, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_Pivot.x
@@ -84639,6 +84680,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameOverScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7786662540042100822, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 108.97638
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
