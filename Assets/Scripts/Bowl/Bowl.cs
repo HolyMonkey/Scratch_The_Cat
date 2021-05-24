@@ -13,6 +13,6 @@ public class Bowl : MonoBehaviour
 
     public void Fill(float value)
     {
-        _food.transform.localPosition = new Vector3(0, _minFoodY + (Mathf.Abs(_maxFoodY - _minFoodY) * value), 0);
+        _food.transform.localPosition = new Vector3(0, _minFoodY + (Mathf.Abs(_maxFoodY - _minFoodY) * value * 0.35f), 0);
     }
 }

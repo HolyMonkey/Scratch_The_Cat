@@ -10,10 +10,12 @@ public class CoinsView : MonoBehaviour
     [SerializeField] private TMP_Text _coins;
 
     private int _currentCoins = 0;
+    public float CoinsOnStart { get; private set; }
 
     private void Awake()
     {
         _currentCoins = PlayerPrefs.GetInt("Coins");
+        CoinsOnStart = _currentCoins;
 
         if (_currentCoins >= 1000)
             _coins.text = (_currentCoins / 1000).ToString() + "K";

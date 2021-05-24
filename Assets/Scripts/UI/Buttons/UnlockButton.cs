@@ -18,23 +18,23 @@ public class UnlockButton : MonoBehaviour
 
     private int _currentUnlockValue;
 
-    private void Start()
+    private void Start ()
     {
         _currentUnlockValue = PlayerPrefs.GetInt("UnlockValue");
         _unlockText.text = (_currentUnlockValue / 1000).ToString() + "K";
     }
 
-    private void OnEnable()
+    private void OnEnable ()
     {
         _button.onClick.AddListener(OnButtonClick);
     }
 
-    private void OnDisable()
+    private void OnDisable ()
     {
         _button.onClick.RemoveListener(OnButtonClick);
     }
 
-    private void Update()
+    private void Update ()
     {
         if (PlayerPrefs.GetInt("Coins") >= _currentUnlockValue && PlayerPrefs.GetInt("UnlockedAnimals") < PlayerPrefs.GetInt("TotalAnimals"))
         {
@@ -48,11 +48,11 @@ public class UnlockButton : MonoBehaviour
         }
     }
 
-    private void OnButtonClick()
+    private void OnButtonClick ()
     {
         int coins = PlayerPrefs.GetInt("Coins");
 
-        if(coins >= _currentUnlockValue)
+        if (coins >= _currentUnlockValue)
         {
             _coinsView.ChangeCoinsCount(_currentUnlockValue);
             PlayerPrefs.SetInt("UnlockedAnimals", PlayerPrefs.GetInt("UnlockedAnimals") + 1);

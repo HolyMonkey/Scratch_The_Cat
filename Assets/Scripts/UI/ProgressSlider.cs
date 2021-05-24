@@ -44,7 +44,6 @@ public class ProgressSlider : MonoBehaviour
         _slider.value = value;
     }
 
-
     private void Shake()
     {
         transform.DOComplete();

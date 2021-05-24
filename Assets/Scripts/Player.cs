@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
         //PlayerPrefs.DeleteKey("UnlockValue");
         //PlayerPrefs.SetInt("Coins", 0);
 
+        PlayerPrefs.SetInt("Coins", 10000);
+
         if (!PlayerPrefs.HasKey("LastScene"))
             PlayerPrefs.SetInt("LastScene", 0);
 
