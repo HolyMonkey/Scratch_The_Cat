@@ -26,7 +26,7 @@ public class MWFXButtonScript : MonoBehaviour
 	{
 		effectScript = GameObject.Find("MWFXFireProjectile").GetComponent<MWFXFireProjectile>();
 		getProjectileNames();
-		MyButtonText = Button.transform.FindChild("Text").GetComponent<Text>();
+		MyButtonText = Button.transform.Find("Text").GetComponent<Text>();
 		MyButtonText.text = projectileParticleName;
 	}
 

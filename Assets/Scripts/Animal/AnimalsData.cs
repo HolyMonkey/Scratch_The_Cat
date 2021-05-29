@@ -7,7 +7,6 @@ public class AnimalsData : MonoBehaviour
     [SerializeField] private UnlockButton _unlockButton;
     [SerializeField] private CustomizePanel _customizePanel;
     [SerializeField] private Transform _animalPlace;
-
     [SerializeField] private Animal[] _animalPrefabs;
     [SerializeField] private RenderTexture[] _animalTextures;
 
@@ -40,6 +39,10 @@ public class AnimalsData : MonoBehaviour
     private void OnAnimalUnlocked()
     {
         InstantiateAnimalView(PlayerPrefs.GetInt("UnlockedAnimals") - 1);
+        Destroy(_animalPlace.GetComponentInChildren<Animal>().gameObject);
+        PlayerPrefs.SetInt("CurrentAnimal", PlayerPrefs.GetInt("CurrentAnimal") + 1);
+
+        var animal = Instantiate(_animalPrefabs[PlayerPrefs.GetInt("CurrentAnimal")], _animalPlace);
     }
 
     private void InstantiateAnimalView(int index)
