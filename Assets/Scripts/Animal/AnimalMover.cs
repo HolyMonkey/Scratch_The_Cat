@@ -80,4 +80,9 @@ public class AnimalMover : MonoBehaviour
         _enableJoystickMode = true;
         _joystick = joystick;
     }
+
+    public void SetSpeed (float moveSpeed)
+    {
+        _moveSpeed = moveSpeed;
+    }
 }

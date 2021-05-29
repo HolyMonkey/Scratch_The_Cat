@@ -8,12 +8,13 @@ public class Player : MonoBehaviour
 
     public int Coins { get; private set; }
 
-    private void Awake()
+    private void Awake ()
     {
         //PlayerPrefs.DeleteKey("UnlockedAnimals");
         //PlayerPrefs.DeleteKey("CurrentAnimal");
         //PlayerPrefs.DeleteKey("UnlockValue");
         //PlayerPrefs.SetInt("Coins", 0);
+        //PlayerPrefs.SetInt("Coins", 10000);
 
         if (!PlayerPrefs.HasKey("LastScene"))
             PlayerPrefs.SetInt("LastScene", 0);
@@ -22,7 +23,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetInt("Coins", 0);
 
         if (!PlayerPrefs.HasKey("TotalAnimals"))
-           PlayerPrefs.SetInt("TotalAnimals", 0);
+            PlayerPrefs.SetInt("TotalAnimals", 0);
 
         if (!PlayerPrefs.HasKey("UnlockedAnimals"))
             PlayerPrefs.SetInt("UnlockedAnimals", 1);
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetInt("UnlockValue", 1000);
 
         Coins = PlayerPrefs.GetInt("Coins");
+
         PlayerPrefs.Save();
     }
 }

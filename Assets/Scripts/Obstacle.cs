@@ -17,6 +17,8 @@ public class Obstacle : MonoBehaviour
         {
             Collided?.Invoke();
 
+            Debug.Log("Collision");
+
             for (int i = 0; i < _inGameParticles.Length; i++)
             {
                 if(_inGameParticles[i].isPlaying == false)
