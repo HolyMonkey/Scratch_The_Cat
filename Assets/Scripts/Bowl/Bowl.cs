@@ -5,11 +5,13 @@ using UnityEngine;
 public class Bowl : MonoBehaviour
 {
     [SerializeField] private BowlCollisionHandler _collisionHandler;
+    [SerializeField] private BowlCollisionHandler _noBowlCollisionHandler;
     [SerializeField] private GameObject _food;
     [SerializeField] private float _minFoodY;
     [SerializeField] private float _maxFoodY;
 
     public BowlCollisionHandler CollisionHandler => _collisionHandler;
+    public BowlCollisionHandler NoBowlCollisionHandler => _noBowlCollisionHandler;
 
     public void Fill(float value)
     {

@@ -45,6 +45,7 @@ public class WatchVideoForEnergy : MonoBehaviour, IRewardedVideoAdListener
     public void onRewardedVideoFinished (double amount, string name)
     {
         PlayerPrefs.SetFloat("Energy", PlayerPrefs.GetFloat("Energy") + _energyForVideo);
+        PlayerPrefs.Save();
         gameObject.SetActive(false);
         SceneManager.LoadScene("Menu");
     }

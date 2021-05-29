@@ -1,20 +1,25 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyGame : MonoBehaviour
+public class DestroyGame : StatsForGame
 {
     [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private Transform _animalPlace;
     [SerializeField] private CameraMover _cameraMover;
 
     [SerializeField] private Prop[] _props;
+    [SerializeField] private Prop[] _animalProps;
     [SerializeField] private ParticleSystem[] _inGameParticles;
+    [SerializeField] private ParticleSystem[] _inGameAngryParticles;
     [SerializeField] private ParticleSystem[] _afterGameParticles;
     [SerializeField] private ProgressSlider _progressSlider;
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private CurrentScoreView _currentScoreView;
+    [SerializeField] private CanvasGroup _trainingPanel;
+    [SerializeField] private float _secondsBeforeTrainingPanelFadeOut;
 
     private Animal _animal;
     private Animator _animalAnimator;
@@ -43,9 +48,10 @@ public class DestroyGame : MonoBehaviour
     private void OnEnable ()
     {
         foreach (var prop in _props)
-        {
             prop.Destroyed += OnPropDestroyed;
-        }
+
+        foreach (var prop in _animalProps)
+            prop.Destroyed += OnPropDestroyed;
     }
 
     private void Update ()
@@ -68,25 +74,43 @@ public class DestroyGame : MonoBehaviour
 
             _coins = _score / 10;
             _gameOverScreen.Enable();
-            _gameOverScreen.Init(_score, _coins, 0, 0, 0, 0);
+            _gameOverScreen.Init(_coins);
             _joystick.gameObject.SetActive(false);
             _progressSlider.gameObject.SetActive(false);
             this.enabled = false;
         }
     }
 
-    private void OnPropDestroyed ()
+    private void OnPropDestroyed (bool isAnimalProp)
     {
-        foreach (var particle in _inGameParticles)
+        if (!isAnimalProp)
         {
-            if (particle.isPlaying == false)
+            foreach (var particle in _inGameParticles)
             {
-                particle.Play();
-                break;
+                if (particle.isPlaying == false)
+                {
+                    particle.Play();
+                    break;
+                }
             }
+
+            _propsLeft--;
+        }
+        else if (isAnimalProp)
+        {
+            foreach (var particle in _inGameAngryParticles)
+            {
+                if (particle.isPlaying == false)
+                {
+                    particle.Play();
+                    break;
+                }
+            }
+
+            _propsLeft += 2;
+            Debug.Log('1');
         }
 
-        _propsLeft--;
         _progressSlider.ChangeValue(_props.Length / 2, _props.Length / 2 - _propsLeft);
     }
 }

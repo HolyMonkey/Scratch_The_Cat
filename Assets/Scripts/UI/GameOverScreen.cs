@@ -14,11 +14,13 @@ public class GameOverScreen : MonoBehaviour
 
     private CanvasGroup _canvasGroup;
     private Animator _animator;
+    private Save _save;
 
     private void Awake ()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _animator = GetComponent<Animator>();
+        _save = GetComponent<Save>();
     }
 
     public void Enable ()
@@ -30,16 +32,13 @@ public class GameOverScreen : MonoBehaviour
         _animator.Play("Open");
     }
 
-    public void Init (int score, int coins, float food, float energy, float clean, float hapiness)
+    public void Init (int coins)
     {
         //_scoreCounter.TotalScore = score;
-        _coinsCounter.TotalCoins = coins;
 
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + coins);
-        PlayerPrefs.SetFloat("Food", PlayerPrefs.GetFloat("Food") + food);
-        PlayerPrefs.SetFloat("Energy", PlayerPrefs.GetFloat("Energy") - energy);
-        PlayerPrefs.SetFloat("Clean", PlayerPrefs.GetFloat("Clean") + clean);
-        PlayerPrefs.SetFloat("Hapiness", PlayerPrefs.GetFloat("Hapiness") + hapiness);
         PlayerPrefs.Save();
+        _save.enabled = true;
+        _save.SaveCoins(coins);
     }
 }

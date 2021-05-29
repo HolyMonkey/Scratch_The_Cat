@@ -7,7 +7,6 @@ public class AnimalsData : MonoBehaviour
     [SerializeField] private UnlockButton _unlockButton;
     [SerializeField] private CustomizePanel _customizePanel;
     [SerializeField] private Transform _animalPlace;
-
     [SerializeField] private Animal[] _animalPrefabs;
     [SerializeField] private RenderTexture[] _animalTextures;
 

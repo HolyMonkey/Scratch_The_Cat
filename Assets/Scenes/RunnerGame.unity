@@ -1566,6 +1566,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8810915421147187364, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _foodForLevel
+      value: -0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810915421147187364, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _purityForLevel
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810915421147187364, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _hapinessForLevel
+      value: -0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
 --- !u!224 &474179725 stripped
@@ -5735,6 +5750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4ca45e10c7ede4291e220f51ea0b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FoodForLevel: -0.015
+  EnergyForLevel: 0.1
+  PurityForLevel: -0.15
+  HapinessForLevel: 0.25
   _animalPrefabs: {fileID: 1524214012}
   _animalPlace: {fileID: 801721542}
   _gameoverScreen: {fileID: 474179728}
@@ -32079,6 +32098,7 @@ MonoBehaviour:
   _purityScenesIndex: 
   _hapinessScenesIndex: 
   _watchVideoForEnergy: {fileID: 0}
+  _energyValueWhenWatchVideoForEnergyActivated: 0.15
 --- !u!1 &2428040334861061211
 GameObject:
   m_ObjectHideFlags: 0
@@ -48743,6 +48763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionHandler: {fileID: 4465377558887825714}
+  _noBowlCollisionHandler: {fileID: 0}
   _food: {fileID: 6377287979974145538}
   _minFoodY: -0.06
   _maxFoodY: 0
@@ -48760,6 +48781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotationDuration: 0
   _rotationStrength: 0
+  _isBowl: 1
 --- !u!1 &4465377558887825715
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseGame : MonoBehaviour
+public class MouseGame : StatsForGame
 {
     [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private Transform _animalPlace;
@@ -24,7 +24,7 @@ public class MouseGame : MonoBehaviour
     private int _score;
     private int _coins;
 
-    private void Awake()
+    private void Awake ()
     {
         var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
         _animal = animal;
@@ -33,7 +33,7 @@ public class MouseGame : MonoBehaviour
         _maxScore = 1000;
     }
 
-    private void Update()
+    private void Update ()
     {
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
@@ -68,6 +68,9 @@ public class MouseGame : MonoBehaviour
                 }
                 else if (distance < 1)
                 {
+                    _currentCatches--;
+                    _progressSlider.ChangeValue(_catchesForWin, _currentCatches);
+
                     foreach (var particle in _inGameFailParticles)
                     {
                         if (particle.isPlaying == false)
@@ -78,14 +81,14 @@ public class MouseGame : MonoBehaviour
                     }
                 }
             }
-
         }
 
-        if(_progressSlider.Value == 1)
+        if (_progressSlider.Value == 1)
         {
             _coins = _score / 10;
             _gameOverScreen.Enable();
-            _gameOverScreen.Init(_score, _coins, 0.15f, 0.25f, 0, 0.33f);
+            _gameOverScreen.Init(_coins);
+            _mouse.gameObject.SetActive(false);
 
             if (_animal != null)
             {
@@ -99,7 +102,7 @@ public class MouseGame : MonoBehaviour
                     particle.Play();
             }
 
-            this.enabled = false;
+            enabled = false;
         }
     }
 }

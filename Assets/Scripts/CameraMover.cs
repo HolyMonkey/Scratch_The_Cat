@@ -19,7 +19,7 @@ public class CameraMover : MonoBehaviour
 
     private Animal _animal;
 
-    private void Update()
+    private void Update ()
     {
         if (_followTarget)
         {
@@ -27,7 +27,7 @@ public class CameraMover : MonoBehaviour
         }
     }
 
-    private void Move()
+    private void Move ()
     {
         Vector3 targetPosition;
 
@@ -43,7 +43,7 @@ public class CameraMover : MonoBehaviour
         }
     }
 
-    public void SetTarget(Animal animal)
+    public void SetTarget (Animal animal)
     {
         _animal = animal;
     }

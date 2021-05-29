@@ -14,22 +14,14 @@ public class StartButton : MonoBehaviour
     [SerializeField] private List<int> _purityScenesIndex;
     [SerializeField] private List<int> _hapinessScenesIndex;
     [SerializeField] private CanvasGroup _watchVideoForEnergy;
+    [SerializeField] private float _energyValueWhenWatchVideoForEnergyActivated = 0.15f;
 
-    private bool _hasEnergy = false;
+    List<string> _stats = new List<string> { "Food", "Purity", "Hapiness" };
 
-    private void Awake ()
+    private void Start ()
     {
-        if (PlayerPrefs.GetFloat("Energy") > 0.25f)
-        {
-            _hasEnergy = true;
-        }
-        else
-        {
-            _watchVideoForEnergy.DOFade(1, 0.25f);
-            _watchVideoForEnergy.alpha = 1;
-            _watchVideoForEnergy.interactable = true;
-            GetComponent<Button>().interactable = false;
-        }
+        if (PlayerPrefs.HasKey("Energy") && PlayerPrefs.GetFloat("Energy") < _energyValueWhenWatchVideoForEnergyActivated)
+            ActivateWatchVideoForEnergy();
     }
 
     private void OnEnable ()
@@ -44,10 +36,8 @@ public class StartButton : MonoBehaviour
 
     private int ChooseLevel ()
     {
-        List<string> stats = new List<string> { "Food", "Clean", "Hapiness" };
-        List<float> statsValues = new List<float> { PlayerPrefs.GetFloat(stats[0]), PlayerPrefs.GetFloat(stats[1]), PlayerPrefs.GetFloat(stats[2]) };
+        List<float> statsValues = new List<float> { PlayerPrefs.GetFloat(_stats[0]), PlayerPrefs.GetFloat(_stats[1]), PlayerPrefs.GetFloat(_stats[2]) };
         float lowestStat = statsValues.Min();
-
         int statIndex = 0;
         int sceneIndex = 0;
 
@@ -76,20 +66,20 @@ public class StartButton : MonoBehaviour
         return sceneIndex;
     }
 
-    private void OnButtonClick ()
+    public void OnButtonClick ()
     {
-        if (_hasEnergy)
-        {
-            int randomScene;
-            do
-            {
-                randomScene = GetRandomSceneIndex();
-            } while (PlayerPrefs.GetInt("LastScene") == randomScene);
-
-            PlayerPrefs.SetInt("LastScene", randomScene);
-            PlayerPrefs.Save();
+        if (PlayerPrefs.HasKey("Energy") && PlayerPrefs.GetFloat("Energy") > _energyValueWhenWatchVideoForEnergyActivated)
             SceneManager.LoadScene(ChooseLevel());
-        }
+        else
+            ActivateWatchVideoForEnergy();
+    }
+
+    private void ActivateWatchVideoForEnergy ()
+    {
+        _watchVideoForEnergy.DOFade(1, 0.25f);
+        _watchVideoForEnergy.alpha = 1;
+        _watchVideoForEnergy.interactable = true;
+        GetComponent<Button>().interactable = false;
     }
 
     private int GetRandomSceneIndex ()

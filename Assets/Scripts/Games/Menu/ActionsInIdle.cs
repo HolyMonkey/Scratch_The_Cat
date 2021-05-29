@@ -5,71 +5,90 @@ using UnityEngine;
 
 public class ActionsInIdle : MonoBehaviour
 {
-    [SerializeField] private Transform[] _points;
+    [SerializeField] private Transform _pointsParent;
     [SerializeField] private Transform _animalPlace;
+    [SerializeField] private float _secondsGoToPoint;
+    [SerializeField] private float _minDoActionSeconds;
+    [SerializeField] private float _maxDoActionSeconds;
 
+    private Transform _animalTransform;
+    private Transform[] _points;
     private Animal _animal;
-    private AnimalMover _animalMover;
     private int _currentPoint = 0;
-    private bool _isMoving = true;
-    private bool _updateWork = true;
+    private bool _timer = true;
+    private float _elapsedTime;
 
     private void Start ()
     {
+        _points = new Transform[_pointsParent.childCount];
+
+        for (int i = 0; i < _points.Length; i++)
+            _points[i] = _pointsParent.GetChild(i);
     }
 
     private void Update ()
     {
-        if(_animal == null)
+        if (_timer)
+            _elapsedTime += Time.deltaTime;
+
+        if (_animalTransform == null)
         {
-            _animal = _animalPlace.GetComponentInChildren<Animal>();
-            _animalMover = _animal.GetComponentInChildren<AnimalMover>();
+            _animalTransform = _animalPlace.GetChild(0);
+            _animal = _animalTransform.GetComponent<Animal>();
+            Destroy(_animal.GetComponent<AnimalMover>());
+            MoveAnimalToPosition();
         }
 
-        if (_updateWork)
+        if (_animal != null)
         {
-            if (_currentPoint == _points.Length)
+            if (_elapsedTime >= _secondsGoToPoint + 1)
             {
-                _currentPoint = 0;
+                _elapsedTime = 0;
+                _timer = false;
+                StartCoroutine(DoRandomAction());
             }
 
-            if (_isMoving)
+            if (_elapsedTime >= _secondsGoToPoint - 1)
             {
-                _animalMover.transform.position = Vector3.Lerp(_animalMover.transform.position, _points[_currentPoint].position, 3 * Time.deltaTime);
-                //_animal.Animator.SetBool("IsWalked", true);
-            }
-
-            if (_animal.transform.position == _points[_currentPoint].position)
-            {
-                _isMoving = false;
-                _updateWork = false;
                 _animal.Animator.SetBool("IsWalked", false);
-                StartCoroutine(DoSomeActions());
             }
         }
     }
 
-    private IEnumerator DoSomeActions ()
+    private void MoveAnimalToPosition ()
     {
-        var waitingSeconds = new WaitForSeconds(Random.Range(1.5f, 5));
-        yield return waitingSeconds;
+        if (_currentPoint == _points.Length)
+            _currentPoint = 0;
 
-        if (PlayerPrefs.GetFloat("Hapiness") >= 0.6f)
-        {
-            _animal.Animator.SetBool("IsHappy", true);
-            yield return waitingSeconds;
-            _animal.Animator.SetBool("IsHappy", false);
-        }
-        else
-        {
-            _animal.Animator.SetBool("IsAngry", true);
-            yield return waitingSeconds;
-            _animal.Animator.SetBool("IsAngry", false);
-        }
-
-        yield return waitingSeconds;
-
+        _timer = true;
+        _animal.Animator.SetBool("IsWalked", true);
+        _animalTransform.DOMove(_points[_currentPoint].position, _secondsGoToPoint);
+        _animalTransform.DOLookAt(_points[_currentPoint].position, 0.15f);
         _currentPoint++;
-        _updateWork = true;
+    }
+
+    private IEnumerator DoRandomAction ()
+    {
+        var secondsBeforeMove = new WaitForSeconds(Random.Range(_minDoActionSeconds, _maxDoActionSeconds));
+        int randomValue = Random.Range(1, 3);
+        _timer = false;
+
+        if(randomValue == 1)
+        {
+            if (PlayerPrefs.GetFloat("Hapiness") < 0.25f)
+            {
+                _animal.Animator.SetBool("IsAngry", true);
+                yield return secondsBeforeMove;
+                _animal.Animator.SetBool("IsAngry", false);
+            }
+            else
+            {
+                _animal.Animator.SetTrigger("Happy");
+                yield return secondsBeforeMove;
+            }
+        }
+
+        MoveAnimalToPosition();
+        _timer = true;
     }
 }

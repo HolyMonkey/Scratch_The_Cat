@@ -17,6 +17,7 @@ public class FoodBox : MonoBehaviour
     private void Awake ()
     {
         _normalRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+        transform.DORotate(new Vector3(_normalRotation.x, 180, transform.localRotation.z), 0.15f);
     }
 
     private void Update()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WashGame : MonoBehaviour
+public class WashGame : StatsForGame
 {
     [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private Transform _animalPlace;
@@ -143,7 +143,7 @@ public class WashGame : MonoBehaviour
             PlayerPrefs.SetInt("CoinsForLastLevel", _coins);
 
             _gameoverScreen.Enable();
-            _gameoverScreen.Init(_score, _coins, -0.3f, 0.22f, 0.69f, -0.27f);
+            _gameoverScreen.Init(_coins);
             this.enabled = false;
         }
     }

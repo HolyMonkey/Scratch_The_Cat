@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunnerGame : MonoBehaviour
+public class RunnerGame : StatsForGame
 {
     [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private Transform _animalPlace;
@@ -79,7 +79,7 @@ public class RunnerGame : MonoBehaviour
             _coins = _score / 10;
 
             _gameoverScreen.Enable();
-            _gameoverScreen.Init(_score, _coins, -0.32f, 0.27f, -0.2f, 0.14f);
+            _gameoverScreen.Init(_coins);
             this.enabled = false;
         }
     }

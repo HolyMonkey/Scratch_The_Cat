@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PetGame : MonoBehaviour
+public class PetGame : StatsForGame
 {
     [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private Transform _animalPlace;
@@ -98,8 +98,6 @@ public class PetGame : MonoBehaviour
         }
     }
 
-
-
     private void Pet()
     {
         float value;
@@ -154,7 +152,7 @@ public class PetGame : MonoBehaviour
         yield return new WaitForSeconds(_secondsBeforeShowOverScreen);
 
         _gameOverScreen.Enable();
-        _gameOverScreen.Init(_score, _coins, 0.23f, 0.15f, -0.34f, 0.19f);
+        _gameOverScreen.Init(_coins);
         this.enabled = false;
     }
 
