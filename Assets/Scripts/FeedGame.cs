@@ -15,6 +15,9 @@ public class FeedGame : MonoBehaviour
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private CurrentScoreView _currentScoreView;
 
+    [SerializeField] private Lostzone _lostzone1;
+    [SerializeField] private Lostzone _lostzone2;
+
     [SerializeField] private ParticleSystem[] _afterGameParticles;
 
     private Animal _animal;
@@ -35,11 +38,15 @@ public class FeedGame : MonoBehaviour
     private void OnEnable()
     {
         _bowl.CollisionHandler.FillBowl += OnFillBowl;
+        _lostzone1.CollisionHandler.LostFeed += OnPastBowl;
+        _lostzone2.CollisionHandler.LostFeed += OnPastBowl;
     }
 
     private void OnDisable()
     {
         _bowl.CollisionHandler.FillBowl -= OnFillBowl;
+        _lostzone1.CollisionHandler.LostFeed -= OnPastBowl;
+        _lostzone2.CollisionHandler.LostFeed -= OnPastBowl;
     }
 
     private void Update()
@@ -74,11 +81,24 @@ public class FeedGame : MonoBehaviour
                 this.enabled = false;
             }
         }
+
+        if (_maxScore == 0)
+        {
+            _gameOverScreen.Enable();
+            _gameOverScreen.Init(_score, _coins);
+            this.enabled = false;
+        }
     }
 
     private void OnFillBowl()
     {
         _progressSlider.ChangeValue(1f * Time.deltaTime);
+        _bowl.Fill(_progressSlider.Value);
+    }
+
+    private void OnPastBowl()
+    {
+        _progressSlider.ChangeValue(-1f * Time.deltaTime);
         _bowl.Fill(_progressSlider.Value);
     }
 }

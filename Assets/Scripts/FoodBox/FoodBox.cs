@@ -12,7 +12,7 @@ public class FoodBox : MonoBehaviour
     {
         if (_isFoodDrop)
         {
-            _food.emissionRate = 100;
+            _food.emissionRate = 200;
         }
         else
         {
