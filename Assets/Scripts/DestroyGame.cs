@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,7 @@ public class DestroyGame : MonoBehaviour
 
     private void Start()
     {
-        _propsLeft = _props.Length / 2;
+        _propsLeft = Convert.ToInt32((_props.Length / 1.5) / 1);
         _maxScore = 1000;
     }
 
@@ -87,6 +88,6 @@ public class DestroyGame : MonoBehaviour
         }
 
         _propsLeft--;
-        _progressSlider.ChangeValue(_props.Length / 2, _props.Length / 2 - _propsLeft);
+        _progressSlider.ChangeValue(Convert.ToInt32((_props.Length / 1.5) / 1), Convert.ToInt32((_props.Length / 1.5) / 1) - _propsLeft);
     }
 }
