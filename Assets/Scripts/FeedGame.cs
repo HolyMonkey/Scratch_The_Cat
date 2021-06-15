@@ -20,6 +20,8 @@ public class FeedGame : MonoBehaviour
 
     [SerializeField] private ParticleSystem[] _afterGameParticles;
 
+    [SerializeField] private EndText _endText;
+
     private Animal _animal;
 
     private float _totalTime;
@@ -82,10 +84,11 @@ public class FeedGame : MonoBehaviour
             }
         }
 
-        if (_maxScore == 0)
+        if (_maxScore <= 0)
         {
             _gameOverScreen.Enable();
             _gameOverScreen.Init(_score, _coins);
+            _endText.ShowEndScreen(false);
             this.enabled = false;
         }
     }
