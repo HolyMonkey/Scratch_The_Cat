@@ -63440,12 +63440,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5738348347496591771}
   - component: {fileID: 5738348347487231587}
-  - component: {fileID: 8270552745709769819}
   - component: {fileID: 7702157453696669495}
   - component: {fileID: 3642215803423846079}
   - component: {fileID: 2308740986518335144}
   - component: {fileID: 1807275580}
   - component: {fileID: 1807275579}
+  - component: {fileID: 9027511422574935593}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Untagged
@@ -63489,23 +63489,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8270552745709769819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5738348347496623547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 5738348347487231587}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &7702157453696669495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63549,7 +63532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 1807275579}
   _animator: {fileID: 5738348347487231587}
-  _mover: {fileID: 8270552745709769819}
+  _movable: {fileID: 9027511422574935593}
   _particles: {fileID: 7702157453696669495}
 --- !u!54 &1807275580
 Rigidbody:
@@ -63581,3 +63564,15 @@ CapsuleCollider:
   m_Height: 3.1116598
   m_Direction: 2
   m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
+--- !u!114 &9027511422574935593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738348347496623547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

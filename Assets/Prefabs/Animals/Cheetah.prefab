@@ -53539,11 +53539,11 @@ GameObject:
   - component: {fileID: 6422440750906342149}
   - component: {fileID: 6422440750899074273}
   - component: {fileID: 4869029787909395320}
-  - component: {fileID: 152562759913921120}
   - component: {fileID: 9165992020080854226}
   - component: {fileID: 596433287346272234}
   - component: {fileID: 6265532705368384614}
   - component: {fileID: 2811284534645737020}
+  - component: {fileID: -2681727532439186681}
   m_Layer: 0
   m_Name: Cheetah
   m_TagString: Untagged
@@ -53601,25 +53601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 596433287346272234}
   _animator: {fileID: 6422440750899074273}
-  _mover: {fileID: 152562759913921120}
+  _movable: {fileID: -2681727532439186681}
   _particles: {fileID: 9165992020080854226}
---- !u!114 &152562759913921120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6422440750906369829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 6422440750899074273}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &9165992020080854226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53677,6 +53660,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8099c243cb9830448eefde9d1afa9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2681727532439186681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422440750906369829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6422440750906369831

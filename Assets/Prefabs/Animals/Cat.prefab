@@ -44009,11 +44009,11 @@ GameObject:
   - component: {fileID: 8552956514214638759}
   - component: {fileID: 8552956514224479043}
   - component: {fileID: 8552956514215127172}
-  - component: {fileID: 8552956514215127194}
   - component: {fileID: 8552956514215127198}
   - component: {fileID: 8552956514215127199}
   - component: {fileID: 8552956514215127192}
   - component: {fileID: 8552956514215127193}
+  - component: {fileID: -8510916249969824119}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -44071,25 +44071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 8552956514215127193}
   _animator: {fileID: 8552956514224479043}
-  _mover: {fileID: 8552956514215127194}
+  _movable: {fileID: -8510916249969824119}
   _particles: {fileID: 8552956514215127199}
---- !u!114 &8552956514215127194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8552956514215127175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8552956514224479043}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &8552956514215127198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44149,6 +44132,18 @@ CapsuleCollider:
   m_Height: 3.1116598
   m_Direction: 2
   m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
+--- !u!114 &-8510916249969824119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552956514215127175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8552956514215127177
 GameObject:
   m_ObjectHideFlags: 0

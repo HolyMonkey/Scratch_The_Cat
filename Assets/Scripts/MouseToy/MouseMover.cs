@@ -57,7 +57,7 @@ public class MouseMover : MonoBehaviour
         transform.LookAt(_target);
     }
 
-    public void SetTarget()
+    private void SetTarget()
     {
         Vector2 randomPosition;
         Vector3 newTarget;

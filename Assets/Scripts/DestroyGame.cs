@@ -31,7 +31,6 @@ public class DestroyGame : MonoBehaviour
     {
         var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
         _animal = animal;
-        _animal.Mover.EnableJoystickMode(_joystick);
         _cameraMover.SetTarget(_animal);
     }
 
@@ -53,10 +52,10 @@ public class DestroyGame : MonoBehaviour
     {
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
-        _score = Mathf.RoundToInt(_maxScore * _progressSlider.Value);
-        _currentScoreView.ChangeScore(_score);
+        //_score = Mathf.RoundToInt(_maxScore * _progressSlider.Value);
+        _currentScoreView.SetScore(_score);
 
-        if (_progressSlider.Value == 1)
+       /* if (//_progressSlider.Value == 1)
         {
             foreach (var particle in _afterGameParticles)
             {
@@ -73,7 +72,7 @@ public class DestroyGame : MonoBehaviour
             _joystick.gameObject.SetActive(false);
             _progressSlider.gameObject.SetActive(false);
             this.enabled = false;
-        }
+        }*/
     }
 
     private void OnPropDestroyed()
@@ -88,6 +87,5 @@ public class DestroyGame : MonoBehaviour
         }
 
         _propsLeft--;
-        _progressSlider.ChangeValue(_props.Length, _props.Length - _propsLeft);
     }
 }

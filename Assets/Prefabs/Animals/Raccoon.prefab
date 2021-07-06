@@ -63379,12 +63379,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5518116097223309045}
   - component: {fileID: 5518116097230559493}
-  - component: {fileID: 1708093657247568743}
   - component: {fileID: 2236980168373082966}
   - component: {fileID: 4938344389611141139}
   - component: {fileID: 1464474844371703787}
   - component: {fileID: 626520962}
   - component: {fileID: 626520961}
+  - component: {fileID: -1214152783796704564}
   m_Layer: 0
   m_Name: Raccoon
   m_TagString: Untagged
@@ -63428,23 +63428,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1708093657247568743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5518116097223273173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 5518116097230559493}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &2236980168373082966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63488,7 +63471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 626520961}
   _animator: {fileID: 5518116097230559493}
-  _mover: {fileID: 1708093657247568743}
+  _movable: {fileID: -1214152783796704564}
   _particles: {fileID: 2236980168373082966}
 --- !u!54 &626520962
 Rigidbody:
@@ -63520,6 +63503,18 @@ CapsuleCollider:
   m_Height: 3.1116598
   m_Direction: 2
   m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
+--- !u!114 &-1214152783796704564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518116097223273173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5518116097223273175
 GameObject:
   m_ObjectHideFlags: 0

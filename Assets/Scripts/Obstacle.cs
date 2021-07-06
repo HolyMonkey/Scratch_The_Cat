@@ -25,7 +25,7 @@ public class Obstacle : MonoBehaviour
                     i = _inGameParticles.Length;
                 }
 
-                _slider.ChangeValue(-0.1f);
+                //_slider.ChangeValue(-0.1f);
                 Camera.main.DOShakeRotation(0.2f, 5, 1, 0);
             }
         }

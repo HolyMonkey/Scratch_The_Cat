@@ -36,10 +36,9 @@ public class MouseGame : MonoBehaviour
     {
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
-        _score = Mathf.RoundToInt(_maxScore * _progressSlider.Value);
-        _currentScoreView.ChangeScore(_score);
+        _currentScoreView.SetScore(_score);
 
-        _animal.Mover.SetTarget(_mouse.transform.position);
+        //_animal._MoverOld.SetTarget(_mouse.transform.position);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -50,7 +49,6 @@ public class MouseGame : MonoBehaviour
                 if (distance > 1)
                 {
                     _currentCatches++;
-                    _progressSlider.ChangeValue(_catchesForWin, _currentCatches);
                     _animal.Particles.FeatherExplosion.Play();
                     _animal.Animator.Play(AnimatorAnimalController.States.Click);
                     _mouse.Mover.Catch();
@@ -79,7 +77,7 @@ public class MouseGame : MonoBehaviour
 
         }
 
-        if(_progressSlider.Value == 1)
+        /*if(_progressSlider.Value == 1)
         {
             _coins = _score / 10;
             _gameOverScreen.Enable();
@@ -98,6 +96,6 @@ public class MouseGame : MonoBehaviour
             }
 
             this.enabled = false;
-        }
+        }*/
     }
 }

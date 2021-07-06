@@ -8,35 +8,14 @@ public class ProgressSlider : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
 
-    private RectTransform _rectTransform;
-    private Vector2 _startPosition;
-
-    public float Value => _slider.value;
-
-    private void Awake()
+    public void SetMaxValue(int maxValue)
     {
-        _rectTransform = GetComponent<RectTransform>();
-        _startPosition = _rectTransform.rect.position;
+        _slider.maxValue = maxValue;
     }
 
-    public void ChangeValue(int maxValue, int currentValue, bool shake = true)
+    public void SetMaxValue(float maxValue)
     {
-        _slider.value = 1f * currentValue / maxValue;
-        if (shake)
-            Shake();
-    }
-
-    public void ChangeValue(float value, bool shake = true)
-    {
-        _slider.value += value;
-        if (shake)
-            Shake();
-    }
-    public void ChangeValue(float maxValue, float currentValue, bool shake = true)
-    {
-        _slider.value = currentValue / maxValue;
-        if (shake)
-            Shake();
+        _slider.maxValue = maxValue;
     }
 
     public void SetValue(float value)
@@ -44,9 +23,8 @@ public class ProgressSlider : MonoBehaviour
         _slider.value = value;
     }
 
-    private void Shake()
+    public void SetValue(int value)
     {
-        transform.DOComplete();
-        transform.DOShakePosition(0.2f, 10f, 50, 0, false, false);
+        _slider.value = value;
     }
 }

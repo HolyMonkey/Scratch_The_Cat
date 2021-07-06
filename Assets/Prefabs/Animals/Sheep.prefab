@@ -24323,11 +24323,11 @@ GameObject:
   - component: {fileID: 4062126465142076525}
   - component: {fileID: 4062126465135106969}
   - component: {fileID: 2811356548885259183}
-  - component: {fileID: 6920463018933457023}
   - component: {fileID: 4594230477897047531}
   - component: {fileID: 7150884588364913525}
   - component: {fileID: 4965697684316071087}
   - component: {fileID: 2268939544635500471}
+  - component: {fileID: 9160487028856737446}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -24385,25 +24385,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 7150884588364913525}
   _animator: {fileID: 4062126465135106969}
-  _mover: {fileID: 6920463018933457023}
+  _movable: {fileID: 9160487028856737446}
   _particles: {fileID: 4594230477897047531}
---- !u!114 &6920463018933457023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4062126465142368333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 4062126465135106969}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &4594230477897047531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24461,6 +24444,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8099c243cb9830448eefde9d1afa9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9160487028856737446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4062126465142368333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4062126465142368335

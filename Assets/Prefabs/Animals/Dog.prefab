@@ -63237,11 +63237,11 @@ GameObject:
   - component: {fileID: 5177334886379855072}
   - component: {fileID: 5177334886372897540}
   - component: {fileID: 7822705836169907811}
-  - component: {fileID: 6932146120120704527}
   - component: {fileID: 2221534470582703931}
   - component: {fileID: 5792744360333680552}
   - component: {fileID: 1941850632}
   - component: {fileID: 1941850631}
+  - component: {fileID: 2943707843574602049}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -63299,25 +63299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 1941850631}
   _animator: {fileID: 5177334886372897540}
-  _mover: {fileID: 6932146120120704527}
+  _movable: {fileID: 2943707843574602049}
   _particles: {fileID: 2221534470582703931}
---- !u!114 &6932146120120704527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5177334886380273856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f3f0dea8da665442babe04f664ddea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 5177334886372897540}
-  _moveSpeed: 7
-  _rotateSpeed: 700
-  _enableJoystickMode: 0
-  _joystick: {fileID: 0}
 --- !u!114 &2221534470582703931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63377,6 +63360,18 @@ CapsuleCollider:
   m_Height: 3.1116598
   m_Direction: 2
   m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
+--- !u!114 &2943707843574602049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5177334886380273856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa851002506f78438c98675e59b15e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5177334886380273858
 GameObject:
   m_ObjectHideFlags: 0

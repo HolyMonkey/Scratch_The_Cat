@@ -43,7 +43,7 @@ public class PetGame : MonoBehaviour
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
         _score = Mathf.RoundToInt(_maxScore * _slider.Value);
-        _currentScoreView.ChangeScore(_score);
+        _currentScoreView.SetScore(_score);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -136,8 +136,6 @@ public class PetGame : MonoBehaviour
         _slider.gameObject.SetActive(false);
 
         _coins = _score / 10;
-        _gameOverScreen.Enable();
-        _gameOverScreen.Init(_score, _coins);
 
         foreach (var particle in _afterGameParticles)
         {

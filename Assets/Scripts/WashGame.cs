@@ -50,7 +50,7 @@ public class WashGame : MonoBehaviour
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
@@ -147,7 +147,7 @@ public class WashGame : MonoBehaviour
             _gameoverScreen.Init(_score, _coins);
             this.enabled = false;
         }
-    }
+    }*/
 
     private void OnButtonClicked(int phase)
     {

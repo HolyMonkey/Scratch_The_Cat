@@ -36,27 +36,11 @@ public class FeedGame : MonoBehaviour
         _animal.GetComponent<Collider>().enabled = false;
         _maxScore = 1000;
     }
-
-    private void OnEnable()
-    {
-        _bowl.CollisionHandler.FillBowl += OnFillBowl;
-        _lostzone1.CollisionHandler.LostFeed += OnPastBowl;
-        _lostzone2.CollisionHandler.LostFeed += OnPastBowl;
-    }
-
-    private void OnDisable()
-    {
-        _bowl.CollisionHandler.FillBowl -= OnFillBowl;
-        _lostzone1.CollisionHandler.LostFeed -= OnPastBowl;
-        _lostzone2.CollisionHandler.LostFeed -= OnPastBowl;
-    }
-
     private void Update()
     {
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
-        _score = Mathf.RoundToInt(_maxScore * _progressSlider.Value);
-        _currentScoreView.ChangeScore(_score);
+        _currentScoreView.SetScore(_score);
 
         if (Input.GetMouseButtonDown(0))
             _foodBox.DropingFood(true);
@@ -64,7 +48,7 @@ public class FeedGame : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
             _foodBox.DropingFood(false);
 
-        if(_progressSlider.Value == 1)
+        /*if(_progressSlider.Value == 1)
         {
             _foodBox.gameObject.SetActive(false);
             _animal.Mover.SetTarget(_animalWaypoint.position);
@@ -82,26 +66,12 @@ public class FeedGame : MonoBehaviour
                 _gameOverScreen.Init(_score, _coins);
                 this.enabled = false;
             }
-        }
+        }*/
 
         if (_maxScore <= 0)
         {
-            _gameOverScreen.Enable();
-            _gameOverScreen.Init(_score, _coins);
             _endText.ShowEndScreen(false);
             this.enabled = false;
         }
-    }
-
-    private void OnFillBowl()
-    {
-        _progressSlider.ChangeValue(1f * Time.deltaTime);
-        _bowl.Fill(_progressSlider.Value);
-    }
-
-    private void OnPastBowl()
-    {
-        _progressSlider.ChangeValue(-1f * Time.deltaTime);
-        _bowl.Fill(_progressSlider.Value);
     }
 }

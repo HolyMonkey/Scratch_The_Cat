@@ -10,6 +10,8 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private ScoreCounter _scoreCounter;
     [SerializeField] private CoinsCounter _coinsCounter;
 
+    [SerializeField] private GameOverText _gameOverText;
+
     private CanvasGroup _canvasGroup;
     private Animator _animator;
 
@@ -19,7 +21,19 @@ public class GameOverScreen : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void Enable()
+    public void ShowWin()
+    {
+        _gameOverText.ShowWinText();
+        Enable();
+    }
+
+    public void ShowLose()
+    {
+        _gameOverText.ShowLoseText();
+        Enable();
+    }
+
+    private void Enable()
     {
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
@@ -27,14 +41,4 @@ public class GameOverScreen : MonoBehaviour
         _scoreCounter.enabled = true;
         _animator.Play("Open");
     }
-
-    public void Init(int score, int coins)
-    {
-        _scoreCounter.TotalScore = score;
-        _coinsCounter.TotalCoins = coins;
-
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + coins);
-        PlayerPrefs.Save();
-    }
-
 }

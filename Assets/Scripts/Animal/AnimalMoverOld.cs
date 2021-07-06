@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimalMover : MonoBehaviour
+public class AnimalMoverOld : MonoBehaviour
 {
     [SerializeField] Animator _animator;
     [SerializeField] private float _moveSpeed;
@@ -11,18 +11,16 @@ public class AnimalMover : MonoBehaviour
     [SerializeField] private bool _enableJoystickMode;
     [SerializeField] private Joystick _joystick;
 
-    private bool _isMove;
     private Vector3 _target;
 
     private void Update()
     {
-        if (_enableJoystickMode == true)
+        if (_enableJoystickMode)
         {
             JoystickMove();
             JoystickRotate();
         }
-
-        if (_enableJoystickMode == false)
+        else
         {
             if (_target != default && transform.position != _target)
             {

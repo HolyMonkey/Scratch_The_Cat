@@ -47,7 +47,7 @@ public class RunnerGame : MonoBehaviour
 
     private void Start()
     {
-        _animal.Mover.SetTarget(_animalTarget.position);
+        //_animal._MoverOld.SetTarget(_animalTarget.position);
         _animal.Animator.Play(AnimatorAnimalController.States.ResizingSpin);
         _maxScore = 1000;
         _currentMaxScore = _maxScore;
@@ -57,8 +57,7 @@ public class RunnerGame : MonoBehaviour
     {
         _totalTime += Time.deltaTime;
         _maxScore = _currentMaxScore - Mathf.RoundToInt(_totalTime) * 10;
-        _score = Mathf.RoundToInt(_maxScore * _slider.Value);
-        _currentScoreView.ChangeScore(_score);
+        _currentScoreView.SetScore(_score);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -72,21 +71,20 @@ public class RunnerGame : MonoBehaviour
             _animal.Collider.direction = 1;
         }
 
-        _slider.ChangeValue(_animalTarget.position.x, _animal.transform.position.x, false);
 
-        if (_slider.Value == 1)
+        /*if (_slider.Value == 1)
         {
             _coins = _score / 10;
 
             _gameoverScreen.Enable();
             _gameoverScreen.Init(_score, _coins);
             this.enabled = false;
-        }
+        }*/
     }
 
     private void OnCollided()
     {
-        _currentScoreView.DecreaseScore(50);
+        //_currentScoreView.DecreaseScore(50);
         _currentMaxScore -= 50; 
     }
 }
