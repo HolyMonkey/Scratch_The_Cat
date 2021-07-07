@@ -3,15 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLevelInput : MonoBehaviour
+namespace MouseLevel
 {
-    public event Action Clicked;
-
-    private void Update()
+    public class MouseLevelInput : PlayerInput
     {
-        if (Input.GetMouseButtonDown(0))
+        public event Action Clicked;
+
+        private void Update()
         {
-            Clicked?.Invoke();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Clicked?.Invoke();
+            }
         }
     }
 }

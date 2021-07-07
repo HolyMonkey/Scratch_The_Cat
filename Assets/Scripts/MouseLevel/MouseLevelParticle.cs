@@ -5,27 +5,26 @@ using UnityEngine;
 
 namespace MouseLevel
 {
-    public class MouseLevelParticle : MonoBehaviour
+    public class MouseLevelParticle : LevelParticle
     {
-        [SerializeField] private Particle _particle;
         [SerializeField] private ParticleSystem _targetParticle;
         [SerializeField] private Transform _target;
 
-        public void PlayFail()
+        public override void PlayFail()
         {
-            _particle.PlayFail();
+            UIParticle.PlayFail();
         }
 
-        public void PlaySuccess()
+        public override void PlaySuccess()
         {
             _targetParticle.transform.position = _target.position;
             _targetParticle.Play();
-            _particle.PlaySuccess();
+            UIParticle.PlaySuccess();
         }
 
-        public void PlayWin()
+        public override void PlayWin()
         {
-            _particle.PlayWin();
+            UIParticle.PlayWin();
         }
     }
 }

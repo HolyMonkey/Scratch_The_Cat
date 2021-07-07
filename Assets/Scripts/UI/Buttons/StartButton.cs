@@ -8,6 +8,8 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
+    private string _nextSceneName;
+    
     private void OnEnable()
     {
         _button.onClick.AddListener(OnButtonClick);
@@ -18,21 +20,26 @@ public class StartButton : MonoBehaviour
         _button.onClick.RemoveListener(OnButtonClick);
     }
 
-    private void OnButtonClick()
+    public void SetLoseButtonEffect(SceneType type)
     {
-        int randomScene;
-        do
-        {
-            randomScene = GetRandomSceneIndex();
-        } while (PlayerPrefs.GetInt("LastScene") == randomScene);
-        
-        PlayerPrefs.SetInt("LastScene", randomScene);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene(randomScene);
+        _nextSceneName = SceneNameFolder.GetSceneName(type);
     }
 
-    private int GetRandomSceneIndex()
+    public void SetWinButtonEffect(SceneType type)
     {
-        return Random.Range(1, SceneManager.sceneCountInBuildSettings);
+        do
+        {
+            _nextSceneName = GetRandomSceneName();
+        } while (_nextSceneName == SceneNameFolder.GetSceneName(type));
+    }
+
+    private void OnButtonClick()
+    {
+        SceneManager.LoadScene(_nextSceneName);
+    }
+
+    private string GetRandomSceneName()
+    {
+        return SceneNameFolder.SceneNames[Random.Range(0, SceneNameFolder.SceneNames.Length)];
     }
 }

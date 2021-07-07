@@ -14,6 +14,8 @@ namespace MouseLevel
         [SerializeField] private MouseLevelInput _levelInput;
         [SerializeField, Range(1, 30)] private int _scoreLoseForSecond;
         [SerializeField] private ScoreByPosition[] _scoreByPositions;
+        [SerializeField] private CoinsFolder _coinsFolder;
+        [SerializeField] private float _coinByScoreMultipler;
         
         private float _currentScore;
 
@@ -79,21 +81,24 @@ namespace MouseLevel
         private void StopCalculate()
         {
             StopCoroutine(LoseScoreEverySecond());
+            int coins = (int)(_currentScore / _coinByScoreMultipler);
+            _coinsFolder.AddCoins(coins);
+            
         }
         
         private void MonitorCurrentValueAfterValueChange()
         {
             if (_currentScore >= _maxScore)
             {
-                ScoreReached?.Invoke();
                 StopCalculate();
+                ScoreReached?.Invoke();
                 return;
             }
 
             if (_currentScore <= 0)
             {
-                LosingAllScore?.Invoke();
                 StopCalculate();
+                LosingAllScore?.Invoke();
                 return;
             }
         }

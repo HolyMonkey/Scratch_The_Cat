@@ -7,7 +7,7 @@ using TMPro;
 
 public class UnlockButton : MonoBehaviour
 {
-    [SerializeField] private CoinsView _coinsView;
+    [SerializeField] private CoinView _coinsView;
     [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _unlockText;
     [SerializeField] private Image _buttonImage;
@@ -54,7 +54,7 @@ public class UnlockButton : MonoBehaviour
 
         if(coins >= _currentUnlockValue)
         {
-            _coinsView.ChangeCoinsCount(_currentUnlockValue);
+            //_coinsView.ChangeCoinsCount(_currentUnlockValue);
             PlayerPrefs.SetInt("UnlockedAnimals", PlayerPrefs.GetInt("UnlockedAnimals") + 1);
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - _currentUnlockValue);
 

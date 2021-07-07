@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace MouseLevel
 {
-    public class PlayerInit : MonoBehaviour
+    public class MousePlayerInit : MonoBehaviour
     {
         [SerializeField] private PlayerSpawner _playerSpawner;
         [SerializeField] private AnimalChase _animalChase;

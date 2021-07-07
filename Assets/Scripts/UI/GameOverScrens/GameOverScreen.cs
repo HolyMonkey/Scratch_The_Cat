@@ -7,9 +7,11 @@ using TMPro;
 [RequireComponent(typeof(Animator))]
 public class GameOverScreen : MonoBehaviour
 {
-    [SerializeField] private ScoreCounter _scoreCounter;
-    [SerializeField] private CoinsCounter _coinsCounter;
-
+    [SerializeField] private SceneType _sceneType;
+    [SerializeField] private CoinView _coinView;
+    [SerializeField] private StartButton _startButton;
+    [SerializeField] private CoinsFolder _coinsFolder;
+    
     [SerializeField] private GameOverText _gameOverText;
 
     private CanvasGroup _canvasGroup;
@@ -24,21 +26,31 @@ public class GameOverScreen : MonoBehaviour
     public void ShowWin()
     {
         _gameOverText.ShowWinText();
+        _startButton.SetWinButtonEffect(_sceneType);
         Enable();
     }
 
     public void ShowLose()
     {
         _gameOverText.ShowLoseText();
+        _startButton.SetLoseButtonEffect(_sceneType);
         Enable();
     }
 
     private void Enable()
     {
+        SetCoinsValue();
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
         _canvasGroup.interactable = true;
-        _scoreCounter.enabled = true;
         _animator.Play("Open");
+    }
+
+    private void SetCoinsValue()
+    {
+        int coinsByLevel = _coinsFolder.LastAddedCoins;
+        int allCoins = _coinsFolder.Coins;
+        
+        _coinView.SetCoins(coinsByLevel, allCoins);
     }
 }

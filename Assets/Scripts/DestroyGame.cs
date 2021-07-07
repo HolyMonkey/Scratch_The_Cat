@@ -44,7 +44,6 @@ public class DestroyGame : MonoBehaviour
     {
         foreach (var prop in _props)
         {
-            prop.Destroyed += OnPropDestroyed;
         }
     }
 
@@ -55,7 +54,7 @@ public class DestroyGame : MonoBehaviour
         //_score = Mathf.RoundToInt(_maxScore * _progressSlider.Value);
         _currentScoreView.SetScore(_score);
 
-       /* if (//_progressSlider.Value == 1)
+            /*if (//_progressSlider.Value == 1)
         {
             foreach (var particle in _afterGameParticles)
             {

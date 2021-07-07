@@ -87984,6 +87984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8842546388921414589}
+  - component: {fileID: 8174247857961910161}
   m_Layer: 5
   m_Name: UIParticles
   m_TagString: Untagged
@@ -88012,6 +88013,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8174247857961910161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842546388921414586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544f20bffccf6734aa1fc60cc30ce65c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _failParticle:
+  - {fileID: 2412623645292021876}
+  - {fileID: 8558216249850335475}
+  - {fileID: 464607401637711682}
+  _winParticle:
+  - {fileID: 8842546389140726161}
+  - {fileID: 8842546389611231282}
+  - {fileID: 1967729909210903493}
+  _successParticles:
+  - {fileID: 5859061353074340925}
+  - {fileID: 8641218115284658924}
+  - {fileID: 2706404473460699622}
+  - {fileID: 8353741292076643439}
 --- !u!1 &8842546389155647565
 GameObject:
   m_ObjectHideFlags: 0

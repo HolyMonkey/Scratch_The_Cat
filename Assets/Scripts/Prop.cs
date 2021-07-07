@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -6,13 +7,22 @@ using UnityEngine.Events;
 
 public class Prop : MonoBehaviour
 {
-    public event UnityAction Destroyed;
+    public event Action<Prop> Destroyed;
 
     private Collider _collider;
 
-    private void Start()
+    private void Awake()
     {
         _collider = GetComponent<Collider>();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.TryGetComponent(out Animal animal))
+        {
+            Vector3 direction = other.GetContact(0).normal * -1;
+            Touch(direction);
+        }
     }
 
     public void Touch(Vector3 direction)
@@ -21,7 +31,7 @@ public class Prop : MonoBehaviour
         transform.DORotate(new Vector3(720, 720, 720), 1f);
         GetComponent<Rigidbody>().AddForce(new Vector3(direction.x, 2f, direction.z) * 10, ForceMode.Impulse);
         _collider.enabled = false;
-        Destroyed?.Invoke();
+        Destroyed?.Invoke(this);
     }
 
 }

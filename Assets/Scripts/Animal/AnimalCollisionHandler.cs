@@ -15,8 +15,6 @@ public class AnimalCollisionHandler : MonoBehaviour
     {
         if(collision.collider.TryGetComponent(out Prop prop))
         {
-            prop.Touch(collision.contacts[0].normal * -1);
-            //var explosion = Instantiate(_animalParticles.FeatherExplosion, collision.contacts[0].point, Quaternion.identity);
             _animalParticles.FeatherExplosion.Play();
         } 
     }

@@ -8,7 +8,7 @@ namespace MouseLevel
     public class ScoreValueMediator : MonoBehaviour
     {
         [SerializeField] private ScoreCalculater _scoreCalculater;
-        [SerializeField] private LevelVeiw _levelVeiw;
+        [SerializeField] private MouseLevelVeiw _levelVeiw;
         [SerializeField] private GameOverScreen _gameOverScreen;
         [SerializeField] private DeactivatorInputSystem _deactivatorInputSystem;
 

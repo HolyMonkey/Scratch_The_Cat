@@ -6,11 +6,11 @@ namespace MouseLevel
 {
     public class DeactivatorInputSystem : MonoBehaviour
     {
-        [SerializeField] private MouseLevelInput _mouseLevelInput;
+        [SerializeField] private PlayerInput _mouseLevelInit;
 
         public void Deactivate()
         {
-            _mouseLevelInput.enabled = false;
+            _mouseLevelInit.enabled = false;
         }
     }
 }

@@ -29,7 +29,7 @@ public class CurrentScoreView : MonoBehaviour
         _score = score;
         _scoreView.text = _score.ToString();
 
-        if (Mathf.Abs(_score - _previousScore) > _scoreStepRedEffect)
+        if (_previousScore - _score >= _scoreStepRedEffect)
         {
             _scoreView.DOColor(Color.red, 0.1f);
         }
