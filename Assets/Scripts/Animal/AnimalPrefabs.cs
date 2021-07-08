@@ -15,4 +15,9 @@ public class AnimalPrefabs : MonoBehaviour
 
         return animal;
     }
+
+    public int GetLength()
+    {
+        return _animals.Length;
+    }
 }

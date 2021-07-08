@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class PetGame : MonoBehaviour
     [SerializeField] private float _distance;
     [SerializeField] private ParticleSystem[] _afterGameParticles;
     [SerializeField] private CurrentScoreView _currentScoreView;
+    [SerializeField] private ScoreCalculate _scoreCalculate;
 
     private Animal _animal;
     private Animator _animalAnimator;
@@ -34,8 +36,12 @@ public class PetGame : MonoBehaviour
         _animal = animal;
         _animalAnimator = _animal.Animator;
         _animalParticles = _animal.Particles;
-        //_animal.GetComponent<Collider>().enabled = false;
         _maxScore = 1000;
+    }
+
+    private void Start()
+    {
+        _scoreCalculate.StartCalculate();
     }
 
     private void Update()
@@ -142,7 +148,8 @@ public class PetGame : MonoBehaviour
             if (particle.isPlaying == false)
                 particle.Play();
         }
-
+        _scoreCalculate.StopCalculate();
+        _gameOverScreen.ShowWin();
     }
 
     public static bool IsAnimationPlaying(Animator animator, string animationName)

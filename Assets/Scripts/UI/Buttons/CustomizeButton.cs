@@ -23,7 +23,7 @@ public class CustomizeButton : MonoBehaviour
     {
         if (_panel.IsActive == false)
         {
-            _panel.SetActive(true);
+            _panel.Activate();
             _uiAnimator.Play("OpenCustomizePanel");
         }
     }

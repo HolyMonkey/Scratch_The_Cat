@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class CameraMover : MonoBehaviour
 {
     [SerializeField] private bool _smoothMove;

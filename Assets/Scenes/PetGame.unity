@@ -5266,6 +5266,7 @@ MonoBehaviour:
   - {fileID: 418299521322234156}
   - {fileID: 7221477785414236891}
   _currentScoreView: {fileID: 439109906}
+  _scoreCalculate: {fileID: 794834068}
 --- !u!124 &682866188
 Behaviour:
   m_ObjectHideFlags: 0
@@ -6012,6 +6013,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 793217974}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &794834067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 794834070}
+  - component: {fileID: 794834069}
+  - component: {fileID: 794834068}
+  m_Layer: 0
+  m_Name: LevelLooker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &794834068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794834067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c08c3904ac2bb4da061fb9eb573572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinsFolder: {fileID: 794834069}
+--- !u!114 &794834069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794834067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae7db16b3f7b387498001ea300549e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &794834070
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794834067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.8845627, y: 4.781992, z: 2.6014123}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &799657682
 GameObject:
   m_ObjectHideFlags: 0
@@ -59361,7 +59419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collider: {fileID: 0}
   _animator: {fileID: 0}
-  _mover: {fileID: 0}
+  _movable: {fileID: 0}
   _particles: {fileID: 0}
 --- !u!1 &843305474165082351
 GameObject:
@@ -84546,6 +84604,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1571619952}
     m_Modifications:
+    - target: {fileID: 4206653770579162799, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0007247925
+      objectReference: {fileID: 0}
     - target: {fileID: 4206653771543209520, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_Pivot.x
@@ -84656,6 +84719,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _sceneType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _coinsFolder
+      value: 
+      objectReference: {fileID: 794834069}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
 --- !u!4 &5833963127911520178

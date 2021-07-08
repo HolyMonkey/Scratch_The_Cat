@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,8 +9,10 @@ public class AnimalsData : MonoBehaviour
     [SerializeField] private CustomizePanel _customizePanel;
     [SerializeField] private Transform _animalPlace;
 
-    [SerializeField] private Animal[] _animalPrefabs;
+    [SerializeField] private AnimalPrefabs _animalPrefabs;
     [SerializeField] private RenderTexture[] _animalTextures;
+
+    public event Action<Animal> AnimalChoyse;
 
     private void OnEnable()
     {
@@ -23,18 +26,18 @@ public class AnimalsData : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("TotalAnimals", _animalPrefabs.Length);
-        PlayerPrefs.Save();
+        PlayerPrefs.SetInt("TotalAnimals", _animalPrefabs.GetLength());
 
         for (int i = 0; i < PlayerPrefs.GetInt("UnlockedAnimals"); i++)
         {
-            if (i < _animalPrefabs.Length)
+            if (i < _animalPrefabs.GetLength())
             {
                 InstantiateAnimalView(i);
             }
         }
 
-        Instantiate(_animalPrefabs[PlayerPrefs.GetInt("CurrentAnimal")], _animalPlace);
+        Animal animal = _animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal"));
+        AnimalChoyse?.Invoke(animal);
     }
 
     private void OnAnimalUnlocked()
@@ -48,7 +51,7 @@ public class AnimalsData : MonoBehaviour
         //{
             //int index = PlayerPrefs.GetInt("UnlockedAnimals") - 1;
             var view = _customizePanel.AddAnimalView();
-            view.Init(_animalPrefabs[index], index, _animalPlace, _animalTextures[index]);
+            view.Init(_animalPrefabs.TryGetAnimal(index), index, _animalPlace, _animalTextures[index]);
         //}
     }
 }

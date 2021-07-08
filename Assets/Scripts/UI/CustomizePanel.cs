@@ -18,23 +18,20 @@ public class CustomizePanel : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void SetActive(bool state)
+    public void Activate()
     {
-        if (state == true)
-        {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-            _isActive = true;
-        }
+        _canvasGroup.alpha = 1;
+        _canvasGroup.interactable = true;
+        _canvasGroup.blocksRaycasts = true;
+        _isActive = true;
+    }
 
-        if (state == false)
-        {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-            _isActive = false;
-        }
+    public void Deactivate()
+    {
+        _canvasGroup.alpha = 0;
+        _canvasGroup.interactable = false;
+        _canvasGroup.blocksRaycasts = false;
+        _isActive = false;
     }
 
     public AnimalView AddAnimalView()

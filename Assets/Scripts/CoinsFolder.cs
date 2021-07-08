@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class CoinsFolder : MonoBehaviour
 {
-    private readonly string _coinsSaveName = "CoinsPlayerPref";
     public int Coins { get; private set; }
     public int LastAddedCoins { get; private set; }
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey(_coinsSaveName))
+        if (PlayerPrefs.HasKey(PlayerPrefName.Coin))
         {
-            Coins = PlayerPrefs.GetInt(_coinsSaveName);
+            Coins = PlayerPrefs.GetInt(PlayerPrefName.Coin);
         }
         else
         {
@@ -24,13 +23,21 @@ public class CoinsFolder : MonoBehaviour
     public void RemoveCoins(int coins)
     {
         Coins -= Coins;
-        PlayerPrefs.SetInt(_coinsSaveName, Coins);
+        PlayerPrefs.SetInt(PlayerPrefName.Coin, Coins);
     }
 
     public void AddCoins(int coins)
     {
-        Coins += coins;
-        LastAddedCoins = coins;
-        PlayerPrefs.SetInt(_coinsSaveName, Coins);
+        if (coins < 0)
+        {
+            LastAddedCoins = 0;
+        }
+        else
+        {
+            LastAddedCoins = coins;
+        }
+        
+        Coins += LastAddedCoins;
+        PlayerPrefs.SetInt(PlayerPrefName.Coin, Coins);
     }
 }

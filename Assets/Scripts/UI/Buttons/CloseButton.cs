@@ -22,6 +22,6 @@ public class CloseButton : MonoBehaviour
     private void OnButtonClick()
     {
         _uiAnimator.Play("CloseCustomizePanel");
-        _panel.SetActive(false);
+        _panel.Deactivate();
     }
 }

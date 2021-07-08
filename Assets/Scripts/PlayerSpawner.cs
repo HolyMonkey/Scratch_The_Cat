@@ -12,5 +12,12 @@ public class PlayerSpawner : MonoBehaviour
         var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
         return animal;
     }
+
+    public Animal Spawn(Animal animal)
+    {
+        var newAnimal = Instantiate(animal);
+        newAnimal.transform.position = _animalPlace.position;
+        return newAnimal;
+    }
 }
 
