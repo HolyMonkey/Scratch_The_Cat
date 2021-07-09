@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -11,12 +12,12 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private CoinView _coinView;
     [SerializeField] private StartButton _startButton;
     [SerializeField] private CoinsFolder _coinsFolder;
-    
     [SerializeField] private GameOverText _gameOverText;
+    [SerializeField] private LevelConditionLooker _levelConditionLooker;
 
     private CanvasGroup _canvasGroup;
     private Animator _animator;
-
+    
     private void Awake()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
@@ -27,6 +28,7 @@ public class GameOverScreen : MonoBehaviour
     {
         _gameOverText.ShowWinText();
         _startButton.SetWinButtonEffect(_sceneType);
+        _levelConditionLooker.CalculateWinValue();
         Enable();
     }
 
@@ -34,7 +36,14 @@ public class GameOverScreen : MonoBehaviour
     {
         _gameOverText.ShowLoseText();
         _startButton.SetLoseButtonEffect(_sceneType);
+        _levelConditionLooker.CalculateLoosValue();
         Enable();
+    }
+
+    public void ShowEnergyLost()
+    {
+        _gameOverText.ShowEnergyLostText();
+        _startButton.SetLoseEnergyButtonEffect();
     }
 
     private void Enable()

@@ -33,8 +33,17 @@ public class StartButton : MonoBehaviour
         } while (_nextSceneName == SceneNameFolder.GetSceneName(type));
     }
 
+    public void SetLoseEnergyButtonEffect()
+    {
+        
+    }
+
     private void OnButtonClick()
     {
+        if (_nextSceneName == default)
+        {
+            _nextSceneName  = GetRandomSceneName();
+        }
         SceneManager.LoadScene(_nextSceneName);
     }
 
