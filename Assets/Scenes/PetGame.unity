@@ -5330,6 +5330,7 @@ GameObject:
   - component: {fileID: 682866188}
   - component: {fileID: 682866186}
   - component: {fileID: 682866187}
+  - component: {fileID: 682866191}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -5433,6 +5434,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 30, y: 90, z: 0}
+--- !u!114 &682866191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682866185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c218581b448096d4f8df682608e62de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalFOV: 40
 --- !u!1001 &687842492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84720,6 +84734,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1402088380753583563, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.11819458
+      objectReference: {fileID: 0}
     - target: {fileID: 1402088381045262703, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -84729,6 +84748,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402088381226814434, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.29052734
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402088381319954249, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.3999939
       objectReference: {fileID: 0}
     - target: {fileID: 3087462251463408955, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
@@ -84865,6 +84894,11 @@ PrefabInstance:
       propertyPath: _levelConditionLooker
       value: 
       objectReference: {fileID: 309318413}
+    - target: {fileID: 4206653772457988642, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.40197754
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
 --- !u!114 &3397201606861763783 stripped
