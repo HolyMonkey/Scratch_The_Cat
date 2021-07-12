@@ -39,6 +39,10 @@ public class ScoreMediator : MonoBehaviour
     {
         return _currentScore / _maxScore;
     }
-    
-    
+
+    public void Hide()
+    {
+        _progressSlider.gameObject.SetActive(false);
+        _currentScoreView.gameObject.SetActive(false);
+    }
 }

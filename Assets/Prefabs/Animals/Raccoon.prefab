@@ -63385,7 +63385,7 @@ GameObject:
   - component: {fileID: 626520962}
   - component: {fileID: 626520961}
   - component: {fileID: -1214152783796704564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Raccoon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

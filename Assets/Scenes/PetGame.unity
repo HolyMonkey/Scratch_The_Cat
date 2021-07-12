@@ -84894,6 +84894,11 @@ PrefabInstance:
       propertyPath: _levelConditionLooker
       value: 
       objectReference: {fileID: 309318413}
+    - target: {fileID: 4206653771543209535, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4206653772457988642, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -41,6 +41,7 @@ namespace DestroyLevel
 
         private void OnAllPropDestroyеd()
         {
+            _levelView.Hide();
             _scoreCalculate.StopCalculate();
             _gameOverScreen.ShowWin();
             _deactivatorInput.Deactivate();

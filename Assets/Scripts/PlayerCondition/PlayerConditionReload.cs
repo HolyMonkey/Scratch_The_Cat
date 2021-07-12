@@ -12,7 +12,6 @@ public static class PlayerConditionReload
             string jsonCondition = PlayerPrefs.GetString(PlayerPrefName.Conditions);
             var deserializeObjectdictionary = JsonConvert.DeserializeObject<Dictionary<PlayerConditionName, float>>(jsonCondition);
             dictionary = deserializeObjectdictionary;
-            Debug.Log("HAve");
             return true;
         }
 

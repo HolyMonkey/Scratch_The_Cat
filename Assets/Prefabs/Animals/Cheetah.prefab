@@ -53544,7 +53544,7 @@ GameObject:
   - component: {fileID: 6265532705368384614}
   - component: {fileID: 2811284534645737020}
   - component: {fileID: -2681727532439186681}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cheetah
   m_TagString: Untagged
   m_Icon: {fileID: 0}

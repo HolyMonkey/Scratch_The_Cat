@@ -58457,7 +58457,7 @@ GameObject:
   - component: {fileID: 8894865915329002577}
   - component: {fileID: 7351337883963424525}
   - component: {fileID: -5585342976799452782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hyena
   m_TagString: Untagged
   m_Icon: {fileID: 0}

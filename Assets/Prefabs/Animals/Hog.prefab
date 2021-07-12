@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 4760069163993263414}
   - component: {fileID: 8447248135924613402}
   - component: {fileID: -4748988585073156248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hog
   m_TagString: Untagged
   m_Icon: {fileID: 0}

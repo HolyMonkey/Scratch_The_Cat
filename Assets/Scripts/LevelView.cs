@@ -34,4 +34,10 @@ public abstract class LevelView : MonoBehaviour
     }
 
     public abstract void ShowNewValue(float value);
+    
+    public void Hide()
+    {
+        ProgressSlider.gameObject.SetActive(false);
+        CurrentScoreView.gameObject.SetActive(false);
+    }
 }

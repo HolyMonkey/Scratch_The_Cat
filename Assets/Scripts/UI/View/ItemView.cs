@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class ItemView : MonoBehaviour
 {
-    [SerializeField] private int _phase;
+    [SerializeField] private WashingItemType _washingItemType;
+    [SerializeField] private ItemInHand _itemInHand;
     [SerializeField] private Button _button;
-
-    public Button Button => _button;
-
-    public event UnityAction<int> ButtonClicked;
 
     private void OnEnable()
     {
@@ -25,6 +22,6 @@ public class ItemView : MonoBehaviour
 
     private void OnButtonClick()
     {
-        ButtonClicked?.Invoke(_phase);
+        _itemInHand.SetItemInHand(_washingItemType);
     }
 }
