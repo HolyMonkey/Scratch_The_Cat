@@ -26,8 +26,7 @@ public class MouseGame : MonoBehaviour
 
     private void Awake()
     {
-        var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
-        _animal = animal;
+        
         _animal.GetComponent<Collider>().enabled = false;
         _maxScore = 1000;
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
@@ -9,8 +7,10 @@ public class PlayerSpawner : MonoBehaviour
 
     public Animal Spawn()
     {
-        var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
-        return animal;
+        AnimalType animalType = UnlockedAnimal.GetCurrentAnimal();
+        Animal animal = _animalPrefabs.GetAnimal(animalType);
+        Animal newAnimal = Instantiate(animal, _animalPlace);
+        return newAnimal;
     }
 
     public Animal Spawn(Animal animal)

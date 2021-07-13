@@ -8,6 +8,8 @@ public class CoinsFolder : MonoBehaviour
     public int Coins { get; private set; }
     public int LastAddedCoins { get; private set; }
 
+    public event Action ValueChanged;
+
     private void Awake()
     {
         if (PlayerPrefs.HasKey(PlayerPrefName.Coin))
@@ -22,8 +24,9 @@ public class CoinsFolder : MonoBehaviour
 
     public void RemoveCoins(int coins)
     {
-        Coins -= Coins;
+        Coins -= coins;
         PlayerPrefs.SetInt(PlayerPrefName.Coin, Coins);
+        ValueChanged?.Invoke();
     }
 
     public void AddCoins(int coins)
@@ -39,5 +42,6 @@ public class CoinsFolder : MonoBehaviour
         
         Coins += LastAddedCoins;
         PlayerPrefs.SetInt(PlayerPrefName.Coin, Coins);
+        ValueChanged?.Invoke();
     }
 }

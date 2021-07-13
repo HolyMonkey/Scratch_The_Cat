@@ -29,8 +29,6 @@ public class DestroyGame : MonoBehaviour
 
     private void Awake()
     {
-        var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
-        _animal = animal;
         _cameraMover.SetTarget(_animal);
     }
 

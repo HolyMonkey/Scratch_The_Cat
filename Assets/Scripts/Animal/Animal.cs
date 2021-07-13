@@ -9,22 +9,12 @@ public class Animal : MonoBehaviour
     [SerializeField] private Animator _animator;
     [SerializeField] private Movable _movable;
     [SerializeField] private AnimalParticles _particles;
+    [SerializeField] private AnimalType _animalType;
 
-    private bool _isInit;
-
+    public AnimalType Type => _animalType;
+    
     public CapsuleCollider Collider => _collider;
     public Movable Movable => _movable;
     public Animator Animator => _animator;
     public AnimalParticles Particles => _particles;
-
-    public void Init(AnimalMover animalMover)
-    {
-        if (_isInit)
-        {
-            return;
-        }
-
-        gameObject.AddComponent(animalMover.GetType());
-
-    }
 }

@@ -32,8 +32,10 @@ public class PetGame : MonoBehaviour
 
     private void Awake()
     {
-        var animal = Instantiate(_animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal")), _animalPlace);
-        _animal = animal;
+        AnimalType animalType = UnlockedAnimal.GetCurrentAnimal();
+        Animal animal = _animalPrefabs.GetAnimal(animalType);
+        _animal = Instantiate(animal, _animalPlace);
+
         _animalAnimator = _animal.Animator;
         _animalParticles = _animal.Particles;
         _maxScore = 1000;

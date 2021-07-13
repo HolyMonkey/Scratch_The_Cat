@@ -44073,6 +44073,7 @@ MonoBehaviour:
   _animator: {fileID: 8552956514224479043}
   _movable: {fileID: -8510916249969824119}
   _particles: {fileID: 8552956514215127199}
+  _animalType: 1
 --- !u!114 &8552956514215127198
 MonoBehaviour:
   m_ObjectHideFlags: 0

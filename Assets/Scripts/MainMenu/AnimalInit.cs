@@ -14,16 +14,23 @@ namespace MainMenu
 
         private void OnEnable()
         {
-            _animalsData.AnimalChoyse += OnAnimalChoyse;
+            _animalsData.AnimalChoosed += OnAnimalChoosed;
         }
 
         private void OnDisable()
         {
-            _animalsData.AnimalChoyse -= OnAnimalChoyse;
+            _animalsData.AnimalChoosed -= OnAnimalChoosed;
         }
 
-        private void OnAnimalChoyse(Animal animal)
+        private void OnAnimalChoosed(Animal animal)
         {
+            _animalStateMachine.Stop();
+            
+            if (_animal != null)
+            {
+                Destroy(_animal.gameObject);
+            }
+            
             _animal = _playerSpawner.Spawn(animal);
             _animal.Collider.isTrigger = true;
             _animalStateMachine.Init(_animal);

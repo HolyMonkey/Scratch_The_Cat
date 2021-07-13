@@ -8,7 +8,7 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
-    private string _nextSceneName;
+    private int _nextSceneNumber;
     
     private void OnEnable()
     {
@@ -22,15 +22,15 @@ public class StartButton : MonoBehaviour
 
     public void SetLoseButtonEffect(SceneType type)
     {
-        _nextSceneName = SceneNameFolder.GetSceneName(type);
+        _nextSceneNumber = SceneNameFolder.GetSceneNumber(type);
     }
 
     public void SetWinButtonEffect(SceneType type)
     {
         do
         {
-            _nextSceneName = GetRandomSceneName();
-        } while (_nextSceneName == SceneNameFolder.GetSceneName(type));
+            _nextSceneNumber = GetRandomSceneNumber();
+        } while (_nextSceneNumber == SceneNameFolder.GetSceneNumber(type));
     }
 
     public void SetLoseEnergyButtonEffect()
@@ -40,15 +40,16 @@ public class StartButton : MonoBehaviour
 
     private void OnButtonClick()
     {
-        if (_nextSceneName == default)
+        if (_nextSceneNumber == default)
         {
-            _nextSceneName  = GetRandomSceneName();
+            _nextSceneNumber  = GetRandomSceneNumber();
         }
-        SceneManager.LoadScene(_nextSceneName);
+        SceneManager.LoadScene(_nextSceneNumber);
     }
 
-    private string GetRandomSceneName()
+    private int GetRandomSceneNumber()
     {
-        return SceneNameFolder.SceneNames[Random.Range(0, SceneNameFolder.SceneNames.Length)];
+        int number = Random.Range(0, SceneNameFolder.SceneNames.Length);
+        return number;
     }
 }

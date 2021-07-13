@@ -10,7 +10,22 @@ public class MainMenuCoinView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private CoinsFolder _coinsFolder;
 
+    private void OnEnable()
+    {
+        _coinsFolder.ValueChanged += ShowValue;
+    }
+
+    private void OnDisable()
+    {
+        _coinsFolder.ValueChanged -= ShowValue;
+    }
+
     private void Start()
+    {
+        ShowValue();
+    }
+
+    private void ShowValue()
     {
         int coins = _coinsFolder.Coins;
 

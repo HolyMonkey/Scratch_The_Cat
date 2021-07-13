@@ -1,18 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using MainMenu;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class AnimalsData : MonoBehaviour
 {
+    [SerializeField] private SOAnimalIcon[] _animalIcons;
     [SerializeField] private UnlockButton _unlockButton;
     [SerializeField] private CustomizePanel _customizePanel;
-    [SerializeField] private Transform _animalPlace;
-
     [SerializeField] private AnimalPrefabs _animalPrefabs;
-    [SerializeField] private RenderTexture[] _animalTextures;
-
-    public event Action<Animal> AnimalChoyse;
+    private Animal _animal;
+    private List<AnimalView> _animalViews;
+    private List<AnimalType> _unlockedAnimalTypes;
+    public event Action<Animal> AnimalChoosed;
 
     private void OnEnable()
     {
@@ -22,36 +25,49 @@ public class AnimalsData : MonoBehaviour
     private void OnDisable()
     {
         _unlockButton.AnimalUnlocked -= OnAnimalUnlocked;
+        foreach (var view in _animalViews)
+        {
+            view.AnimalChoosed -= OnAnimalChoose;
+        }
     }
 
     private void Start()
     {
-        PlayerPrefs.SetInt("TotalAnimals", _animalPrefabs.GetLength());
+        _animalViews = new List<AnimalView>();
+        _unlockedAnimalTypes = UnlockedAnimal.GetUnlockedAnimal();
 
-        for (int i = 0; i < PlayerPrefs.GetInt("UnlockedAnimals"); i++)
+        for (int i = 0; i < _unlockedAnimalTypes.Count; i++)
         {
             if (i < _animalPrefabs.GetLength())
             {
-                InstantiateAnimalView(i);
+                InstantiateAnimalView(_unlockedAnimalTypes[i]);
             }
         }
 
-        Animal animal = _animalPrefabs.TryGetAnimal(PlayerPrefs.GetInt("CurrentAnimal"));
-        AnimalChoyse?.Invoke(animal);
+        AnimalType animalType = UnlockedAnimal.GetCurrentAnimal();
+        Animal animal = _animalPrefabs.GetAnimal(animalType);
+        AnimalChoosed?.Invoke(animal);
     }
 
-    private void OnAnimalUnlocked()
+    private void OnAnimalUnlocked(AnimalType animalType)
     {
-        InstantiateAnimalView(PlayerPrefs.GetInt("UnlockedAnimals") - 1);
+        InstantiateAnimalView(animalType);
     }
 
-    private void InstantiateAnimalView(int index)
+    private void InstantiateAnimalView(AnimalType animalType)
     {
-        //if (PlayerPrefs.GetInt("UnlockedAnimals") <= PlayerPrefs.GetInt("TotalAnimals"))
-        //{
-            //int index = PlayerPrefs.GetInt("UnlockedAnimals") - 1;
-            var view = _customizePanel.AddAnimalView();
-            view.Init(_animalPrefabs.TryGetAnimal(index), index, _animalPlace, _animalTextures[index]);
-        //}
+        var view = _customizePanel.AddAnimalView();
+        _animalViews.Add(view);
+        view.AnimalChoosed += OnAnimalChoose;
+        Sprite animalIcon = _animalIcons.First(icon => icon.Type == animalType).AnimalIcon;
+
+        view.Init(animalType, animalIcon);
+    }
+
+    private void OnAnimalChoose(AnimalType animalType)
+    {
+        Animal animal = _animalPrefabs.GetAnimal(animalType);
+        UnlockedAnimal.SaveCurrentAnimal(animalType);
+        AnimalChoosed?.Invoke(animal);
     }
 }

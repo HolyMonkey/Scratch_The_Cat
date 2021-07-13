@@ -53486,6 +53486,7 @@ MonoBehaviour:
   _animator: {fileID: 6217441386456341825}
   _movable: {fileID: 2789575107164768152}
   _particles: {fileID: 5839608674754398835}
+  _animalType: 4
 --- !u!114 &5839608674754398835
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class SceneNameFolder : MonoBehaviour
 {
-    private static Dictionary<SceneType, string> _nameByType = new Dictionary<SceneType, string>()
+    private static Dictionary<SceneType, int> _nameByType = new Dictionary<SceneType, int>()
     {
-        {SceneType.MouseLevel, "MouseGame"},
-        {SceneType.MainMenu, "Menu"},
-        {SceneType.DestroyLevel, "DestroyGame"},
-        {SceneType.FeedLevel, "FeedGame"},
-        {SceneType.RunnerLevel, "RunnerGame"},
-        {SceneType.PetLevel, "PetGame"}
+        {SceneType.MouseLevel, 2},
+        {SceneType.MainMenu, 1},
+        {SceneType.DestroyLevel, 4},
+        {SceneType.FeedLevel, 5},
+        {SceneType.RunnerLevel, 7},
+        {SceneType.PetLevel, 3},
+        {SceneType.WashLevel, 6}
     };
 
     public static readonly string[] SceneNames =
@@ -21,10 +22,11 @@ public class SceneNameFolder : MonoBehaviour
         "DestroyGame",
         "FeedGame",
         "PetGame",
-        "RunnerGame"
+        "RunnerGame",
+        "WashGame"
     };
-        
-    public static string GetSceneName(SceneType type)
+    
+    public static int GetSceneNumber(SceneType type)
     {
         return _nameByType[type];
     }
