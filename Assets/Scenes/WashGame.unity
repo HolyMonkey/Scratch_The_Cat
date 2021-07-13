@@ -7845,6 +7845,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _sceneType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _coinsFolder
       value: 
       objectReference: {fileID: 1461560439}
@@ -9138,6 +9143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1582013948990787449, guid: 363d8f9cd08beaa42a611c50445fdcd3,
+        type: 3}
+      propertyPath: _gameOverScreen
+      value: 
+      objectReference: {fileID: 1409740639}
     - target: {fileID: 1705269475011199043, guid: 363d8f9cd08beaa42a611c50445fdcd3,
         type: 3}
       propertyPath: m_RootOrder
@@ -9198,6 +9208,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Conditions
       objectReference: {fileID: 0}
+    - target: {fileID: 3802023178014148839, guid: 363d8f9cd08beaa42a611c50445fdcd3,
+        type: 3}
+      propertyPath: _conditionViews.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3802023178014148839, guid: 363d8f9cd08beaa42a611c50445fdcd3,
+        type: 3}
+      propertyPath: _conditionViews.Array.data[0]
+      value: 
+      objectReference: {fileID: 1990704277}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 363d8f9cd08beaa42a611c50445fdcd3, type: 3}
 --- !u!1001 &1337779705
@@ -15025,6 +15045,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1990263868}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1990704277 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1402088381226814447, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+    type: 3}
+  m_PrefabInstance: {fileID: 1087494498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9d9c76d72dd88d4998dec1a5111edd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1994044045 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7278815410957230528, guid: ed818af1026076b4ca022eb6102a46b2,

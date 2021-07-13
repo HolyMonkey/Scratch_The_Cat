@@ -41,6 +41,12 @@ public class PlayerConditionFolder : MonoBehaviour
 
     }
 
+    public void AddEnergy()
+    {
+        AddValue(PlayerConditionName.Energy, 100);
+        SaveDictionary();
+    }
+
     public void AddConditionValue(PlayerConditionName playerConditionName)
     {
         float addValue = _conditionAddMultipler * _conditionValueSpeedFall;

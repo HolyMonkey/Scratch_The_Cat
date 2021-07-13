@@ -26,4 +26,9 @@ public class EnergyLooker : MonoBehaviour
             _gameOverScreen.ShowEnergyLost();
         }
     }
+
+    public void AddEnergy()
+    {
+        _conditionFolder.AddEnergy();
+    }
 }

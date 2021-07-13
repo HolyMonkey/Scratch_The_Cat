@@ -65,7 +65,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NEXT
+  m_text: 'ADD
+
+    ENERGY'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 81b867c187285224991f098a7d6f6187, type: 2}
   m_sharedMaterial: {fileID: -7825464351306340187, guid: 81b867c187285224991f098a7d6f6187,
@@ -93,7 +95,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -204,7 +206,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: c22efc3f2930429409681da68ddc3019, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -270,6 +272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 3397201606199487174}
+  _energyButtonSprite: {fileID: 21300000, guid: b77e64136c7b1404fbda896112c6c39a,
+    type: 3}
 --- !u!1 &3397201606520657901
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,8 +962,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.2
-  m_fontSizeBase: 30.2
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,10 +1114,10 @@ RectTransform:
   m_Father: {fileID: 4206653771543209520}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.41418, y: 205}
-  m_SizeDelta: {x: 499.5, y: 63}
+  m_AnchorMin: {x: 0.23522222, y: 0.64541674}
+  m_AnchorMax: {x: 0.75570375, y: 0.64541674}
+  m_AnchoredPosition: {x: 0, y: 31.5}
+  m_SizeDelta: {x: 0, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4206653770800854926
 CanvasRenderer:
@@ -1187,7 +1191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18, y: 0.19075312}
   m_AnchorMax: {x: 0.82422435, y: 0.75813705}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.00015258999}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.00015258789}
   m_SizeDelta: {x: 0, y: -0.00048828}
   m_Pivot: {x: 0.5, y: 0.4999999}
 --- !u!222 &4206653771377336436
@@ -1342,7 +1346,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4206653771543209522}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -1442,7 +1446,7 @@ MonoBehaviour:
     HeaderText: Level Failed
     ButtonText: RETRY
   _energyLostText:
-    HeaderText: Energy Lost
+    HeaderText: Level Completed!
     ButtonText: ADD ENERGY
 --- !u!1 &4206653772213264038
 GameObject:
@@ -1502,7 +1506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
+  m_Color: {r: 0.01886791, g: 0.017532917, b: 0.017532917, a: 0.42745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1629,7 +1633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.60300004, y: 0.75813705}
   m_AnchorMax: {x: 0.96758133, y: 0.96400005}
-  m_AnchoredPosition: {x: -0.55482, y: 0}
+  m_AnchoredPosition: {x: -0.5548096, y: 0}
   m_SizeDelta: {x: -1.1096, y: 0.00011444}
   m_Pivot: {x: 0.50000024, y: 1.2364371}
 --- !u!114 &4171966884711049078
@@ -1682,7 +1686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.16122663, y: 0.04310159}
   m_AnchorMax: {x: 0.836, y: 0.29386634}
-  m_AnchoredPosition: {x: 0.00010681, y: -26.8722}
+  m_AnchoredPosition: {x: 0.00010681152, y: -26.872192}
   m_SizeDelta: {x: -0.00018311, y: -53.7444}
   m_Pivot: {x: 0.49999988, y: 0.49999988}
 --- !u!222 &2199839462410062464
@@ -1801,7 +1805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.135, y: 0.18670955}
   m_AnchorMax: {x: 0.8358274, y: 0.8463859}
-  m_AnchoredPosition: {x: 0, y: -0.00023460388}
+  m_AnchoredPosition: {x: 0, y: -0.00023651123}
   m_SizeDelta: {x: 0, y: -0.00053406}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3321077989204387969

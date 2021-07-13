@@ -6,13 +6,13 @@ public class SceneNameFolder : MonoBehaviour
 {
     private static Dictionary<SceneType, int> _nameByType = new Dictionary<SceneType, int>()
     {
-        {SceneType.MouseLevel, 2},
-        {SceneType.MainMenu, 1},
-        {SceneType.DestroyLevel, 4},
-        {SceneType.FeedLevel, 5},
-        {SceneType.RunnerLevel, 7},
-        {SceneType.PetLevel, 3},
-        {SceneType.WashLevel, 6}
+        {SceneType.MouseLevel, 1},
+        {SceneType.MainMenu, 0},
+        {SceneType.DestroyLevel, 3},
+        {SceneType.FeedLevel, 4},
+        {SceneType.RunnerLevel, 6},
+        {SceneType.PetLevel, 2},
+        {SceneType.WashLevel, 5}
     };
 
     public static readonly string[] SceneNames =
