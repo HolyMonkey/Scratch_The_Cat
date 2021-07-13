@@ -8,7 +8,7 @@ using WashLevel;
 public class WashGame : MonoBehaviour
 {
     [SerializeField] private ItemInHand _itemInHand;
-    [SerializeField] private ItemView[] _itemViews;
+    [SerializeField] private List<ItemView> _itemViews;
     [SerializeField] private WashingState[] _washingStates;
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerSpawner _playerSpawner;
@@ -51,7 +51,7 @@ public class WashGame : MonoBehaviour
 
     private void EnterNextState()
     {
-        Destroy(_itemViews[0]);
+        Destroy(_itemViews[_currentStateNumber].gameObject);
         _currentStateNumber++;
         
         if (_currentStateNumber >= _washingStates.Length)

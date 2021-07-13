@@ -22,7 +22,6 @@ namespace WashLevel
                     if (Vector3.Distance(hitInfo.point, _previousPosition) >= delta)
                     {
                         _value += _valueBurst * Time.deltaTime;
-                        Debug.Log(_value);
                         if (previousValue < (int) _value)
                         {
                             NotifyOnValueChange();
