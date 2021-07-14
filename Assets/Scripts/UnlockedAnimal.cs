@@ -28,7 +28,7 @@ public static class UnlockedAnimal
 
     public static AnimalType GetCurrentAnimal()
     {
-        AnimalType animalType = default;
+        AnimalType animalType = AnimalType.Cat;
         if (PlayerPrefs.HasKey(PlayerPrefName.CurrentAnimal))
         {
             string json = PlayerPrefs.GetString(PlayerPrefName.CurrentAnimal);
