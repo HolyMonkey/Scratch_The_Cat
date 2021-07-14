@@ -10,4 +10,15 @@ public class GameMenu : EditorWindow
     {
         PlayerPrefs.DeleteAll();
     }
+
+    [MenuItem("Game/Add 10000 Coins")]
+    public static void AddMayCoins()
+    {
+        int value = 10000;
+        if (PlayerPrefs.HasKey(PlayerPrefName.Coin))
+        {
+            value += PlayerPrefs.GetInt(PlayerPrefName.Coin);
+        }
+        PlayerPrefs.SetInt(PlayerPrefName.Coin, value);
+    }
 }
