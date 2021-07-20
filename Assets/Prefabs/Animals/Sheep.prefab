@@ -24388,6 +24388,7 @@ MonoBehaviour:
   _movable: {fileID: 9160487028856737446}
   _particles: {fileID: 4594230477897047531}
   _animalType: 8
+  _movableRoot: {fileID: 4062126465142076537}
 --- !u!114 &4594230477897047531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24415,10 +24416,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.1439447
-  m_Height: 3.1116598
+  m_Radius: 0.89532757
+  m_Height: 3.2705803
   m_Direction: 2
-  m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
+  m_Center: {x: 0.0039465427, y: 0.9751823, z: -0.24455214}
 --- !u!54 &4965697684316071087
 Rigidbody:
   m_ObjectHideFlags: 0

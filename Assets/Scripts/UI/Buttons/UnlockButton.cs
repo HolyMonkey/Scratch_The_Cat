@@ -17,6 +17,7 @@ public class UnlockButton : MonoBehaviour
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private int _startUnlockValue;
+    [SerializeField] private int _costMultiplyer = 1;
     
     private int _currentUnlockValue;
 
@@ -68,7 +69,7 @@ public class UnlockButton : MonoBehaviour
         {
             AnimalType newAnimalType = GetNewUnlockedAnimal();
             _coinsFolder.RemoveCoins(_currentUnlockValue);
-            _currentUnlockValue *= 2;
+            _currentUnlockValue *= _costMultiplyer;
             PlayerPrefs.SetInt(PlayerPrefName.NewAnimalCost, _currentUnlockValue);
             ShowCurrentButton();
             AnimalUnlocked?.Invoke(newAnimalType);
