@@ -8,7 +8,7 @@ namespace WashLevel
 {
     public class LatherState : WashingState
     {
-        [SerializeField] private Bubbles _bubble;
+        [SerializeField] private Bubbles[] _possibleBubbles;
         [SerializeField] private BubblesFolder _bubblesFolder;
         private float _deltaX = -0.1f;
 
@@ -23,13 +23,13 @@ namespace WashLevel
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.TryGetComponent(out Animal animal) &&  hitInfo.collider.TryGetComponent(out Bubbles bubbles) == false)
+                Animal animal = hitInfo.collider.GetComponentInParent<Animal>();
+                if (animal != null &&  hitInfo.collider.TryGetComponent(out Bubbles bubbles) == false)
                 {
-                    
                     Vector3 newBabblePosition = hitInfo.point;
                     newBabblePosition.x = newBabblePosition.x + _deltaX;
-                    var newBubble = Instantiate(_bubble);
-                    newBubble.transform.position = newBabblePosition;
+                    var newBubble = Instantiate(_possibleBubbles[UnityEngine.Random.Range(0, _possibleBubbles.Length)], hitInfo.point, Quaternion.identity);
+                    newBubble.transform.SetParent(animal.MovableRoot);
                     newBubble.transform.LookAt(Camera.main.transform);
                     _bubbles.Add(newBubble);
                     NotifyOnValueChange();

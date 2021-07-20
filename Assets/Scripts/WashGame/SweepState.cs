@@ -18,10 +18,10 @@ namespace WashLevel
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo))
             {
-                if (hitInfo.collider.TryGetComponent(out Bubbles bubbles))
+                if (hitInfo.collider.TryGetComponent(out Bubbles bubbles) && _bubbles.Contains(bubbles))
                 {
                     _bubbles.Remove(bubbles);
-                    Destroy(bubbles.gameObject);
+                    bubbles.Disappear();
                     NotifyOnValueChange();
                 }
             }

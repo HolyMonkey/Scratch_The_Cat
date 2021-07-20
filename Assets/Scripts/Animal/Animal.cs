@@ -10,6 +10,7 @@ public class Animal : MonoBehaviour
     [SerializeField] private Movable _movable;
     [SerializeField] private AnimalParticles _particles;
     [SerializeField] private AnimalType _animalType;
+    [SerializeField] private Transform _movableRoot;
 
     public AnimalType Type => _animalType;
     
@@ -17,4 +18,5 @@ public class Animal : MonoBehaviour
     public Movable Movable => _movable;
     public Animator Animator => _animator;
     public AnimalParticles Particles => _particles;
+    public Transform MovableRoot => _movableRoot;
 }
