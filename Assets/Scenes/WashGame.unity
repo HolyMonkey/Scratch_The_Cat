@@ -7718,6 +7718,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4206653770515299984, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.019439697
+      objectReference: {fileID: 0}
     - target: {fileID: 4206653770579162799, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10177,6 +10182,9 @@ MonoBehaviour:
   _maxValue: 40
   _washingItemType: 1
   _bubblesFolder: {fileID: 1461560436}
+  _washableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1461560433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10210,6 +10218,9 @@ MonoBehaviour:
   - {fileID: 6008975759307801845, guid: 76950f05170701841b05e6ebf99f6407, type: 3}
   - {fileID: 6008975759307801845, guid: e96ddb578b25b0c44a8fcde501db3ec8, type: 3}
   _bubblesFolder: {fileID: 1461560436}
+  _washableLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &1461560435
 MonoBehaviour:
   m_ObjectHideFlags: 0

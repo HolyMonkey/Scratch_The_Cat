@@ -34129,7 +34129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4380273038109970263}
   - component: {fileID: 6492054654195919215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58373,7 +58373,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7620481238628332997}
   - component: {fileID: 2714118854070822539}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58408,10 +58408,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.0055631394
-  m_Height: 0.017728709
+  m_Radius: 0.006255825
+  m_Height: 0.019253138
   m_Direction: 2
-  m_Center: {x: -3.2122462e-26, y: 0.004877099, z: -0.00044792384}
+  m_Center: {x: -4.4742037e-26, y: 0.005569785, z: 0.00031428077}
 --- !u!1 &7620481238628821479
 GameObject:
   m_ObjectHideFlags: 0
@@ -58619,9 +58619,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.1439447
-  m_Height: 2.728478
+  m_Height: 3.1116598
   m_Direction: 2
-  m_Center: {x: 0.025596619, y: 0.97518325, z: -0.51560307}
+  m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
 --- !u!54 &7351337883963424525
 Rigidbody:
   m_ObjectHideFlags: 0

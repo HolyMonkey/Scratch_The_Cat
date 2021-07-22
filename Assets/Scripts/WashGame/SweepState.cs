@@ -7,6 +7,7 @@ namespace WashLevel
     public class SweepState : WashingState
     {
         [SerializeField] private BubblesFolder _bubblesFolder;
+        [SerializeField] private LayerMask _washableLayer;
         private List<Bubbles> _bubbles;
         
         public override void Enter()
@@ -16,7 +17,7 @@ namespace WashLevel
         
         public override void Wash()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo, float.PositiveInfinity, _washableLayer.value))
             {
                 if (hitInfo.collider.TryGetComponent(out Bubbles bubbles) && _bubbles.Contains(bubbles))
                 {

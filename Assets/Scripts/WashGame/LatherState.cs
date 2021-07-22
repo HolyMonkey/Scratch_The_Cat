@@ -10,6 +10,7 @@ namespace WashLevel
     {
         [SerializeField] private Bubbles[] _possibleBubbles;
         [SerializeField] private BubblesFolder _bubblesFolder;
+        [SerializeField] private LayerMask _washableLayer;
         private float _deltaX = -0.1f;
 
         private List<Bubbles> _bubbles;
@@ -21,10 +22,10 @@ namespace WashLevel
 
         public override void Wash()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hitInfo, float.PositiveInfinity, _washableLayer.value))
             {
                 Animal animal = hitInfo.collider.GetComponentInParent<Animal>();
-                if (animal != null &&  hitInfo.collider.TryGetComponent(out Bubbles bubbles) == false)
+                if (hitInfo.collider.TryGetComponent(out Bubbles bubbles) == false)
                 {
                     Vector3 newBabblePosition = hitInfo.point;
                     newBabblePosition.x = newBabblePosition.x + _deltaX;

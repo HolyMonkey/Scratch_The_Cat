@@ -33760,7 +33760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8699954386386624116}
   - component: {fileID: 8781540669836386970}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53280,7 +53280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6217441386449089185}
   - component: {fileID: 4382136228157536833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

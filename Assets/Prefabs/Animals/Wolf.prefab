@@ -63007,7 +63007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4245810278350027934}
   - component: {fileID: 6852211408056488534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63082,7 +63082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5738348347496591747}
   - component: {fileID: 6090344409942235925}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63624,9 +63624,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.1439447
-  m_Height: 3.092399
+  m_Height: 3.1116598
   m_Direction: 2
-  m_Center: {x: 0.025596619, y: 0.97518325, z: -0.3336428}
+  m_Center: {x: 0.025596619, y: 0.97518325, z: -0.32401228}
 --- !u!114 &9027511422574935593
 MonoBehaviour:
   m_ObjectHideFlags: 0
