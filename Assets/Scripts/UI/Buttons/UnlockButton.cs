@@ -35,6 +35,9 @@ public class UnlockButton : MonoBehaviour
 
     private void Start()
     {
+        if (AreAnimalsAvailable() == false)
+            DisableButton();
+
         if (PlayerPrefs.HasKey(PlayerPrefName.NewAnimalCost))
         {
             _currentUnlockValue = PlayerPrefs.GetInt(PlayerPrefName.NewAnimalCost);
@@ -74,6 +77,9 @@ public class UnlockButton : MonoBehaviour
             ShowCurrentButton();
             AnimalUnlocked?.Invoke(newAnimalType);
         }
+
+        if (AreAnimalsAvailable() == false)
+            DisableButton();
     }
 
     private AnimalType GetNewUnlockedAnimal()
@@ -92,5 +98,25 @@ public class UnlockButton : MonoBehaviour
         unlockedAnimal.Add(newAnimalType);
         UnlockedAnimal.Save(unlockedAnimal);
         return newAnimalType;
+    }
+
+    private bool AreAnimalsAvailable()
+    {
+        List<AnimalType> allAnimals = new List<AnimalType>();
+        List<Animal> animalPrefabs = _animalPrefabs.GetAnimals();
+        foreach (var animal in animalPrefabs)
+        {
+            allAnimals.Add(animal.Type);
+        }
+
+        List<AnimalType> unlockedAnimal = UnlockedAnimal.GetUnlockedAnimal();
+        int lockedAnimalsCount = allAnimals.Except(unlockedAnimal).Count();
+
+        return lockedAnimalsCount != 0;
+    }
+
+    private void DisableButton()
+    {
+        _button.gameObject.SetActive(false);
     }
 }
