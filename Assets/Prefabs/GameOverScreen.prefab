@@ -615,7 +615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.20976962, y: 1}
-  m_AnchoredPosition: {x: -0.019432068, y: -0.012435913}
+  m_AnchoredPosition: {x: -0.019439697, y: -0.012435913}
   m_SizeDelta: {x: -0.04893598, y: 0}
   m_Pivot: {x: 0.5000003, y: 0.5}
 --- !u!222 &4206653770515299998
@@ -903,7 +903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25381607, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00075149536, y: -0.007385254}
+  m_AnchoredPosition: {x: 0.00075531006, y: -0.007385254}
   m_SizeDelta: {x: -0.00022888, y: -0.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4206653770579162797
@@ -1041,7 +1041,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.61595917, y: 36.52501}
-  m_SizeDelta: {x: 355.16815, y: 654.15}
+  m_SizeDelta: {x: 512, y: 512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4206653770593461896
 CanvasRenderer:
@@ -1191,7 +1191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17361751, y: 0.17380276}
   m_AnchorMax: {x: 0.82232606, y: 0.69662625}
-  m_AnchoredPosition: {x: -1.0525665, y: 0.4764099}
+  m_AnchoredPosition: {x: -1.0525818, y: 0.4764099}
   m_SizeDelta: {x: -2.4175854, y: 0.6170362}
   m_Pivot: {x: 0.5, y: 0.4999999}
 --- !u!222 &4206653771377336436
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.1
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1633,7 +1633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.55776495, y: 0.73087716}
   m_AnchorMax: {x: 0.96758133, y: 0.93900007}
-  m_AnchoredPosition: {x: -0.5144348, y: -0.118076324}
+  m_AnchoredPosition: {x: -0.5144043, y: -0.11807251}
   m_SizeDelta: {x: -1.0004637, y: -0.5511695}
   m_Pivot: {x: 0.50000024, y: 1.2364371}
 --- !u!114 &4171966884711049078
@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.35
+  m_fontSize: 28
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2008,7 +2008,7 @@ PrefabInstance:
     - target: {fileID: 8100319289662840275, guid: 24cbb09c299e2d2409762737633527f3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.30153275
+      value: 0.30152893
       objectReference: {fileID: 0}
     - target: {fileID: 8100319289662840275, guid: 24cbb09c299e2d2409762737633527f3,
         type: 3}
