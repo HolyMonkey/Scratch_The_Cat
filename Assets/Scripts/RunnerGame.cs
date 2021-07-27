@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -8,6 +9,8 @@ public class RunnerGame : MonoBehaviour
     [SerializeField] private Obstacle[] _obstacles;
     [SerializeField] private ScoreMediator _scoreMediator;
     [SerializeField] private ScoreCalculate _scoreCalculate;
+    [SerializeField] private GameOverScreen _gameOverScreen;
+    [SerializeField] private RunnerGameMover _mover;
 
     private Animal _animal;
     private float _totalTime;
@@ -52,8 +55,9 @@ public class RunnerGame : MonoBehaviour
 
     private void OnCollided()
     {
-        _scoreMediator.SetFailScore(50);
-        _scoreCalculate.SetPenalty(50);
+        _gameOverScreen.ShowLose();
+        enabled = false;
+        _mover.Stop();
     }
 
     public void SetAnimal(Animal animal)

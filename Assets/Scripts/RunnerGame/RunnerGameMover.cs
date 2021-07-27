@@ -35,6 +35,11 @@ public class RunnerGameMover : MonoBehaviour
         _movable.SetSpeed(_speed);
     }
 
+    public void Stop()
+    {
+        enabled = false;
+    }
+
     private void Move()
     {
         Vector3 direction = (_target - _movable.transform.position).normalized;
