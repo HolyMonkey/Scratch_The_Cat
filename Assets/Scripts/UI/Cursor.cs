@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Cursor : MonoBehaviour
 {
+    public event Action Clicked;
+
     [SerializeField] private AnimationClip _animation;
 
     private Animator _animator;
@@ -22,10 +25,11 @@ public class Cursor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
             Destroy(gameObject);
             Time.timeScale = 1;
+            Clicked?.Invoke();
         }
     }
 }

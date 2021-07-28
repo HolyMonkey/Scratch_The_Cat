@@ -14,6 +14,7 @@ public class PetGame : MonoBehaviour
     [SerializeField] private ParticleSystem[] _afterGameParticles;
     [SerializeField] private CurrentScoreView _currentScoreView;
     [SerializeField] private ScoreCalculate _scoreCalculate;
+    [SerializeField] private Cursor _cursor;
 
     private Animal _animal;
     private Animator _animalAnimator;
@@ -29,6 +30,9 @@ public class PetGame : MonoBehaviour
     private Vector2 _currentPosition;
 
     private int _phase;
+
+    private bool _startedMovement = false;
+    private bool _enabled = false;
 
     private void Awake()
     {
@@ -46,8 +50,21 @@ public class PetGame : MonoBehaviour
         _scoreCalculate.StartCalculate();
     }
 
+    private void OnEnable()
+    {
+        _cursor.Clicked += OnCursorClicked;
+    }
+
+    private void OnDisable()
+    {
+        _cursor.Clicked -= OnCursorClicked;
+    }
+
     private void Update()
     {
+        if (_enabled == false)
+            return;
+
         _totalTime += Time.deltaTime;
         _maxScore = 1000 - Mathf.RoundToInt(_totalTime) * 10;
         _score = Mathf.RoundToInt(_maxScore * _slider.Value);
@@ -56,6 +73,7 @@ public class PetGame : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _startPosition = Input.mousePosition;
+            _startedMovement = true;
         }
 
         if (Input.GetMouseButton(0))
@@ -77,7 +95,7 @@ public class PetGame : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && _startedMovement)
         {
             if(_timeAfterTouch < 0.2f)
             {
@@ -103,6 +121,11 @@ public class PetGame : MonoBehaviour
         {
             Complete();
         }
+    }
+
+    private void OnCursorClicked()
+    {
+        _enabled = true;
     }
 
     private void Pet()

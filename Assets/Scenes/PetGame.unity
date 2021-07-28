@@ -2833,6 +2833,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7748545669183232597, guid: f36016dadb123c340b5ecde74fed8252,
         type: 3}
+      propertyPath: _petGame
+      value: 
+      objectReference: {fileID: 682866187}
+    - target: {fileID: 7748545669183232597, guid: f36016dadb123c340b5ecde74fed8252,
+        type: 3}
       propertyPath: _animation
       value: 
       objectReference: {fileID: 7400000, guid: ca2a6810ab16ef24da6dc1b5cc7c9223, type: 2}
@@ -3146,6 +3151,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391159620}
   m_Mesh: {fileID: 4300000, guid: 6d9a50479f1b9b146af14ff7aee02068, type: 3}
+--- !u!114 &391627877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7748545669183232597, guid: f36016dadb123c340b5ecde74fed8252,
+    type: 3}
+  m_PrefabInstance: {fileID: 352427318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dca57766ca085a64bbf1048f0ba971bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &401147981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5369,6 +5386,7 @@ MonoBehaviour:
   - {fileID: 7221477785414236891}
   _currentScoreView: {fileID: 439109906}
   _scoreCalculate: {fileID: 794834068}
+  _cursor: {fileID: 391627877}
 --- !u!124 &682866188
 Behaviour:
   m_ObjectHideFlags: 0
@@ -59536,6 +59554,8 @@ MonoBehaviour:
   _animator: {fileID: 0}
   _movable: {fileID: 0}
   _particles: {fileID: 0}
+  _animalType: 0
+  _movableRoot: {fileID: 0}
 --- !u!1 &843305474165082351
 GameObject:
   m_ObjectHideFlags: 0
