@@ -10,6 +10,9 @@ public class LearningBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (PlayerPrefs.GetInt("LearningCompleted", 0) == 1)
+            return;
+
         if (other.TryGetComponent(out Animal animal))
             StartCoroutine(ShowText(_time));
     }

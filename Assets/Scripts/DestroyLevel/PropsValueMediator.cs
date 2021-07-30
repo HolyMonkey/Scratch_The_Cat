@@ -44,6 +44,7 @@ namespace DestroyLevel
             _levelView.Hide();
             _scoreCalculate.StopCalculate();
             _gameOverScreen.ShowWin();
+            _levelView.ShowWin();
             _deactivatorInput.Deactivate();
         }
     }

@@ -13,6 +13,7 @@ namespace MouseLevel
         [SerializeField] private DeactivatorInputSystem _deactivatorInputSystem;
 
         private float _perviousScore;
+        private bool _levelWon = false;
         
         private void OnEnable()
         {
@@ -69,6 +70,10 @@ namespace MouseLevel
 
         private void OnLevelWin()
         {
+            if (_levelWon)
+                return;
+            _levelWon = true;
+
             _gameOverScreen.ShowWin();
             _levelVeiw.ShowWin();
             _deactivatorInputSystem.Deactivate();

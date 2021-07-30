@@ -2356,6 +2356,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2111353207644471855, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _winParticle
+      value: 
+      objectReference: {fileID: 3843343263408921501}
     - target: {fileID: 4206653771543209520, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2471,6 +2476,11 @@ PrefabInstance:
       propertyPath: _coinsFolder
       value: 
       objectReference: {fileID: 1868426840}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _winParticle
+      value: 
+      objectReference: {fileID: 3843343263408921501}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: _levelConditionLooker

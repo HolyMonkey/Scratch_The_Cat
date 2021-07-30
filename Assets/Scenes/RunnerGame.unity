@@ -2044,7 +2044,7 @@ Canvas:
   m_GameObject: {fileID: 572222957}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1623550994}
   m_PlaneDistance: 5
   m_PixelPerfect: 0
@@ -2838,6 +2838,11 @@ PrefabInstance:
       propertyPath: _coinsFolder
       value: 
       objectReference: {fileID: 240916387}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _winParticle
+      value: 
+      objectReference: {fileID: 1976728645}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: _levelConditionLooker

@@ -20,6 +20,7 @@ public class RunnerGameMover : MonoBehaviour
         {
             PositionReached?.Invoke();
             enabled = false;
+            PlayerPrefs.SetInt("LearningCompleted", 1);
         }
     }
 
