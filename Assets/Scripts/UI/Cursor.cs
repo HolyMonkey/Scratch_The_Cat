@@ -11,6 +11,7 @@ public class Cursor : MonoBehaviour
     [SerializeField] private AnimationClip _animation;
 
     private Animator _animator;
+    private bool _vanished;
 
     private void Awake()
     {
@@ -20,16 +21,19 @@ public class Cursor : MonoBehaviour
     private void Start()
     {
         _animator.Play(_animation.name);
-        Time.timeScale = 0;
+
+        if (_vanished == false)
+            Time.timeScale = 0;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && _vanished == false)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             Time.timeScale = 1;
             Clicked?.Invoke();
+            _vanished = true;
         }
     }
 }
