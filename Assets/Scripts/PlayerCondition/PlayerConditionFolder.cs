@@ -7,9 +7,11 @@ using UnityEngine;
 
 public class PlayerConditionFolder : MonoBehaviour
 {
+    [SerializeField] private float _conditionAddValue = 20f;
+    [SerializeField] private float _conditionDistractValue = 5f;
+    [SerializeField] private float _energyDistractValue = 20f;
+
     private Dictionary<PlayerConditionName, float> _conditions;
-    private float _conditionValueSpeedFall = 5f;
-    private float _conditionAddMultipler = 4f;
 
     public readonly float MaxConditionValue = 100f;
     private readonly float _minConditionValue = 0;
@@ -21,12 +23,6 @@ public class PlayerConditionFolder : MonoBehaviour
         if (PlayerConditionReload.TryLoad(out Dictionary<PlayerConditionName, float> dictionary))
         {
             _conditions = dictionary;
-            if (TryGetConditionsChangesByTime(out float value))
-            {
-                AddValue(PlayerConditionName.Energy, value);
-                RemoveValue(PlayerConditionName.Energy, -value);
-                PlayerConditionReload.Save(_conditions);
-            }
 
         }
         else
@@ -35,10 +31,14 @@ public class PlayerConditionFolder : MonoBehaviour
         }
     }
 
+    public PlayerConditionName GetLowestCondition()
+    {
+        return _conditions.Keys.OrderBy(x => _conditions[x]).Where(x => x != PlayerConditionName.Energy).First();
+    }
+
     public float GetValueByConditionName(PlayerConditionName playerConditionName)
     {
         return _conditions[playerConditionName];
-
     }
 
     public void AddEnergy()
@@ -49,18 +49,25 @@ public class PlayerConditionFolder : MonoBehaviour
 
     public void AddConditionValue(PlayerConditionName playerConditionName)
     {
-        float addValue = _conditionAddMultipler * _conditionValueSpeedFall;
-        AddValue(playerConditionName, addValue);
-        float removeValue = -_conditionValueSpeedFall;
-        RemoveValue(playerConditionName, removeValue);
+        for (int condition = 0; condition < (int)PlayerConditionName.ConditionCount; condition++)
+        {
+            if (condition == (int)PlayerConditionName.Energy)
+                continue;
+
+            if (condition == (int)playerConditionName)
+                AddValue((PlayerConditionName)condition, _conditionAddValue);
+            else
+                AddValue((PlayerConditionName)condition, -_conditionDistractValue);
+        }
+
+        AddValue(PlayerConditionName.Energy, -_energyDistractValue);
         SaveDictionary();
         ValueChanged?.Invoke();
     }
 
     public void RemoveConditionsValue()
     {
-        float value = -_conditionValueSpeedFall;
-        RemoveValue(default, value);
+        AddValue(PlayerConditionName.Energy, -_energyDistractValue);
         SaveDictionary();
         ValueChanged?.Invoke();
     }
@@ -77,35 +84,14 @@ public class PlayerConditionFolder : MonoBehaviour
         }
     }
 
-    private void RemoveValue(PlayerConditionName playerConditionName, float value)
-    {
-
-        foreach (var valueKey in _conditions.Keys.ToList())
-        {
-            if (valueKey == playerConditionName)
-            {
-                break;
-            }
-            
-            if (CheckPosibleAddValue(valueKey, value))
-            {
-                SetConditionValue(valueKey, value);
-            }
-            else
-            {
-                SetMinValue(valueKey);
-            }
-        }
-    }
-
     private void CreateNewDictionary()
     {
         _conditions = new Dictionary<PlayerConditionName, float>()
         {
             {PlayerConditionName.Energy, 100},
-            {PlayerConditionName.Cleanness, 0},
-            {PlayerConditionName.Food, 0},
-            {PlayerConditionName.Entertainment, 0}
+            {PlayerConditionName.Cleanness, 40},
+            {PlayerConditionName.Food, 40},
+            {PlayerConditionName.Entertainment, 40}
         };
         
         SaveDictionary();

@@ -7,5 +7,6 @@ public enum PlayerConditionName
     Food,
     Energy,
     Entertainment,
-    Cleanness
+    Cleanness,
+    ConditionCount
 }

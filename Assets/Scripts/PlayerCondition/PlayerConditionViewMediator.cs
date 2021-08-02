@@ -25,6 +25,12 @@ public class PlayerConditionViewMediator : MonoBehaviour
         Show();
     }
 
+    public void ShowAfterAddEnergy()
+    {
+        _playerConditionFolder.AddEnergy();
+        Show();
+    }
+
     public void Show()
     {
         foreach (var conditionView in _conditionViews)
