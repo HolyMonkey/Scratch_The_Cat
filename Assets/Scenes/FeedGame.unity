@@ -12502,6 +12502,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1571619952}
     m_Modifications:
+    - target: {fileID: 702303975, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
+      propertyPath: _coinsFolder
+      value: 
+      objectReference: {fileID: 60977199}
     - target: {fileID: 1402088380625444670, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchorMax.x

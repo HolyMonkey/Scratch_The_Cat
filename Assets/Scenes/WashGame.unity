@@ -7668,6 +7668,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1571619952}
     m_Modifications:
+    - target: {fileID: 702303975, guid: 3128dcc9ff78e0c41aacdb1637b84346, type: 3}
+      propertyPath: _coinsFolder
+      value: 
+      objectReference: {fileID: 1461560439}
     - target: {fileID: 1402088380625444670, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -9223,6 +9227,11 @@ PrefabInstance:
       propertyPath: _conditionViews.Array.data[0]
       value: 
       objectReference: {fileID: 1990704277}
+    - target: {fileID: 5047467147912706618, guid: 363d8f9cd08beaa42a611c50445fdcd3,
+        type: 3}
+      propertyPath: _playerConditionName
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 363d8f9cd08beaa42a611c50445fdcd3, type: 3}
 --- !u!1001 &1337779705
