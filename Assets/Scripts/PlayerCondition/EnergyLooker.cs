@@ -29,6 +29,6 @@ public class EnergyLooker : MonoBehaviour
 
     public void AddEnergy()
     {
-        _conditionFolder.AddEnergy();
+        _conditionFolder.AddEnergy(_conditionFolder.MaxConditionValue);
     }
 }

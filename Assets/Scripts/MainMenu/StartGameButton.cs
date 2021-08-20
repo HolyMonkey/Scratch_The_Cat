@@ -12,6 +12,7 @@ namespace MainMenu
         [SerializeField] private Button _button;
         [SerializeField] private PlayerConditionFolder _conditionFolder;
         [SerializeField] private SceneGroup[] _groups;
+        [SerializeField] private LowEnergyScreen _lowEnergyScreen;
 
         private void OnEnable()
         {
@@ -25,7 +26,10 @@ namespace MainMenu
 
         private void LoadScene()
         {
-            SceneManager.LoadScene(GetNeccessaryScene());
+            if (_conditionFolder.GetValueByConditionName(PlayerConditionName.Energy) >= _conditionFolder.LevelEnergyCost)
+                SceneManager.LoadScene(GetNeccessaryScene());
+            else
+                _lowEnergyScreen.Enable();
         }
 
         private string GetNeccessaryScene()

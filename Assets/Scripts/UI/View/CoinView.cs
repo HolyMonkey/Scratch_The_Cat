@@ -24,4 +24,6 @@ public class CoinView : MonoBehaviour
 
         _allCoins.text = maxCoinsText;
     }
+
+    public void SetAllCoins(int value) => _allCoins.text = value.ToString();
 }

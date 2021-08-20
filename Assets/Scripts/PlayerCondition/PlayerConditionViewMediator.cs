@@ -25,11 +25,17 @@ public class PlayerConditionViewMediator : MonoBehaviour
         Show();
     }
 
-    public void ShowAfterAddEnergy()
+    public void ShowAfterAddFullEnergy()
     {
-        _playerConditionFolder.AddEnergy();
+        _playerConditionFolder.AddEnergy(_playerConditionFolder.MaxConditionValue);
         Show();
     }
+
+    public void ShowAfterAddEnergy(int value)
+    {
+        _playerConditionFolder.AddEnergy(value);
+        Show();
+    }    
 
     public void Show()
     {

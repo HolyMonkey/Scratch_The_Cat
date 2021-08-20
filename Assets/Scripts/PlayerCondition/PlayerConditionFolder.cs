@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
 public class PlayerConditionFolder : MonoBehaviour
 {
     [SerializeField] private float _conditionAddValue = 20f;
     [SerializeField] private float _conditionDistractValue = 5f;
     [SerializeField] private float _energyDistractValue = 20f;
 
+    public float LevelEnergyCost => _energyDistractValue;
+
     private Dictionary<PlayerConditionName, float> _conditions;
 
-    public readonly float MaxConditionValue = 100f;
-    private readonly float _minConditionValue = 0;
+    public readonly int MaxConditionValue = 100;
+    private readonly int _minConditionValue = 0;
 
     public event Action ValueChanged;
 
@@ -41,9 +42,9 @@ public class PlayerConditionFolder : MonoBehaviour
         return _conditions[playerConditionName];
     }
 
-    public void AddEnergy()
+    public void AddEnergy(int value)
     {
-        AddValue(PlayerConditionName.Energy, 100);
+        AddValue(PlayerConditionName.Energy, value);
         SaveDictionary();
     }
 
@@ -74,14 +75,7 @@ public class PlayerConditionFolder : MonoBehaviour
 
     private void AddValue(PlayerConditionName playerConditionName, float value)
     {
-        if (CheckPosibleAddValue(playerConditionName, value))
-        {
-            SetConditionValue(playerConditionName, value);
-        }
-        else
-        {
-            SetMaxValue(playerConditionName);
-        }
+        _conditions[playerConditionName] = Mathf.Clamp(_conditions[playerConditionName] + value, _minConditionValue, MaxConditionValue);
     }
 
     private void CreateNewDictionary()
@@ -95,32 +89,6 @@ public class PlayerConditionFolder : MonoBehaviour
         };
         
         SaveDictionary();
-    }
-
-    private bool CheckPosibleAddValue(PlayerConditionName playerConditionName, float value)
-    {
-        float currentValue = _conditions[playerConditionName] + value;
-        if (currentValue > MaxConditionValue || currentValue < _minConditionValue)
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    private void SetConditionValue(PlayerConditionName playerConditionName, float value)
-    {
-        _conditions[playerConditionName] += value;
-    }
-
-    private void SetMaxValue(PlayerConditionName playerConditionName)
-    {
-        _conditions[playerConditionName] = MaxConditionValue;
-    }
-
-    private void SetMinValue(PlayerConditionName playerConditionName)
-    {
-        _conditions[playerConditionName] = _minConditionValue;
     }
 
     private void SaveDictionary()

@@ -10,7 +10,7 @@ namespace WashLevel
         [SerializeField] private LayerMask _washableLayer;
         private List<Bubbles> _bubbles;
         
-        public override void Enter()
+        protected override void EnterState()
         {
             _bubbles = _bubblesFolder.GetBubbles();
         }

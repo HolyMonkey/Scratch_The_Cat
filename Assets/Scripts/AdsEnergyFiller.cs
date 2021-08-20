@@ -19,6 +19,6 @@ public class AdsEnergyFiller : MonoBehaviour
 
     private void OnVideoWatched()
 	{
-        _conditionMediator.ShowAfterAddEnergy();
+        _conditionMediator.ShowAfterAddFullEnergy();
 	}
 }
