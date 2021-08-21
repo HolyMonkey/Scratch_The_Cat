@@ -15,4 +15,9 @@ public class ItemInHand : MonoBehaviour
     {
         return _washingItemType;
     }
+
+    public void SetNoneItem()
+    {
+        _washingItemType = WashingItemType.None;
+    }
 }

@@ -6,5 +6,6 @@ public enum WashingItemType
 {
     Soap,
     Brush,
-    Hairbrush
+    Hairbrush,
+    None
 }

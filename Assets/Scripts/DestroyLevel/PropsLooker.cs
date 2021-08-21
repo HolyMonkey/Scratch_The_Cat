@@ -8,6 +8,7 @@ namespace DestroyLevel
     public class PropsLooker : MonoBehaviour
     {
         [SerializeField] private List<Prop> _props;
+        [SerializeField] private AudioSource _audioSource;
     
         public event Action CountChanged;
         public event Action AllPropDestroyеd;
@@ -38,6 +39,7 @@ namespace DestroyLevel
             prop.Destroyed -= OnPropDestroy;
             _props.Remove(prop);
             CountChanged?.Invoke();
+            _audioSource.Play();
             if (CheckPropsLength())
             {
                 AllPropDestroyеd?.Invoke();

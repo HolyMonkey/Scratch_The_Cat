@@ -12,7 +12,7 @@ public class WashGame : MonoBehaviour
     [SerializeField] private WashingState[] _washingStates;
     [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private PlayerSpawner _playerSpawner;
-    private List<Bubbles> _bubbles;
+
     private WashingState _currentState;
     private int _currentStateNumber;
 
@@ -26,6 +26,7 @@ public class WashGame : MonoBehaviour
     private void OnEnable()
     {
         _inputHandler.MouseDraging += Washing;
+        _inputHandler.UnClicked += EndWashing;
         foreach (var washingState in _washingStates)
         {
             washingState.StateComplited += EnterNextState;
@@ -35,6 +36,7 @@ public class WashGame : MonoBehaviour
     private void OnDisable()
     {
         _inputHandler.MouseDraging -= Washing;
+        _inputHandler.UnClicked -= EndWashing;
         foreach (var washingState in _washingStates)
         {
             washingState.StateComplited -= EnterNextState;
@@ -46,11 +48,23 @@ public class WashGame : MonoBehaviour
         if (_itemInHand.GetItemInHand() == _currentState.ItemType)
         {
             _currentState.Wash();
+            if (_currentState.AudioSource.isPlaying == false && _currentState.IsWashing)
+            {
+                _currentState.AudioSource.Play();
+            }
         }
+    }
+
+    private void EndWashing()
+    {
+        _currentState.AudioSource.Pause();
     }
 
     private void EnterNextState()
     {
+        _currentState.AudioSource.Stop();
+        _itemInHand.SetNoneItem();
+
         Destroy(_itemViews[_currentStateNumber].gameObject);
         _currentStateNumber++;
         

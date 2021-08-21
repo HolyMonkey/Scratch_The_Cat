@@ -9,6 +9,8 @@ namespace MouseLevel
     {
         public event Action Clicked;
 
+        [SerializeField] private Cursor _cursor;
+
         private void Update()
         {
             if (Input.GetMouseButtonDown(0))

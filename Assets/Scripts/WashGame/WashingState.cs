@@ -9,26 +9,15 @@ namespace WashLevel
     {
         [SerializeField] private int _maxValue;
         [SerializeField] private WashingItemType _washingItemType;
-        [SerializeField] protected AudioSource AudioSource;
-        [SerializeField] private InputHandler _handler;
+        [SerializeField] private AudioSource _audioSource;
 
         public WashingItemType ItemType => _washingItemType;
+        public AudioSource AudioSource => _audioSource;
+        public bool IsWashing { get; private set; } = true;
         protected int MaxValue => _maxValue;
         
         public event Action StateComplited;
         public event Action ValueChanged;
-
-        private void OnEnable()
-        {
-            _handler.Clicked += PlaySound;
-            _handler.UnClicked += StopSound;
-        }
-
-        private void OnDisable()
-        {
-            _handler.Clicked -= PlaySound;
-            _handler.UnClicked -= StopSound;
-        }
 
         public float GetMaxValue()
         {
@@ -39,7 +28,6 @@ namespace WashLevel
 
         public void Enter()
         {
-            AudioSource.Play();
             EnterState();
         }
 
@@ -47,18 +35,13 @@ namespace WashLevel
 
         protected void EndState()
         {
+            IsWashing = false;
             StateComplited?.Invoke();
-            AudioSource.Stop();
         }
 
         protected void NotifyOnValueChange()
         {
             ValueChanged?.Invoke();
         }
-
-        private void PlaySound() => AudioSource.Play();
-
-        private void StopSound() => AudioSource.Pause();
     }
 }
-

@@ -15,6 +15,7 @@ public class PetGame : MonoBehaviour
     [SerializeField] private CurrentScoreView _currentScoreView;
     [SerializeField] private ScoreCalculate _scoreCalculate;
     [SerializeField] private Cursor _cursor;
+    [SerializeField] private AudioSource _audioSource;
 
     private Animal _animal;
     private Animator _animalAnimator;
@@ -74,6 +75,7 @@ public class PetGame : MonoBehaviour
         {
             _startPosition = Input.mousePosition;
             _startedMovement = true;
+            _audioSource.Play();
         }
 
         if (Input.GetMouseButton(0))
@@ -105,6 +107,7 @@ public class PetGame : MonoBehaviour
                 _slider.Shake();
             }
 
+            _audioSource.Pause();
             _timeAfterTouch = 0;
             _animalParticles.EmojiAngry.Stop();
             _animalParticles.EmojiHeart.Stop();
@@ -119,6 +122,7 @@ public class PetGame : MonoBehaviour
 
         if (_slider.Value == 1 && _phase == 1)
         {
+            _audioSource.Stop();
             Complete();
         }
     }
