@@ -48,7 +48,7 @@ public class WashGame : MonoBehaviour
         if (_itemInHand.GetItemInHand() == _currentState.ItemType)
         {
             _currentState.Wash();
-            if (_currentState.AudioSource.isPlaying == false && _currentState.IsWashing)
+            if (_currentState.AudioSource.isPlaying == false && _currentState.IsWashing && _itemInHand.GetItemInHand() == _currentState.ItemType)
             {
                 _currentState.AudioSource.Play();
             }

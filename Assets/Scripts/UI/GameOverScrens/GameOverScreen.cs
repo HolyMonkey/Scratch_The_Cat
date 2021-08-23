@@ -15,6 +15,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private GameOverText _gameOverText;
     [SerializeField] private LevelConditionLooker _levelConditionLooker;
     [SerializeField] private AdsCoinMultiplyer _coinMultiplyer;
+    [SerializeField] private AudioSource _victorySound;
 
     private CanvasGroup _canvasGroup;
     private Animator _animator;
@@ -41,6 +42,7 @@ public class GameOverScreen : MonoBehaviour
         _startButton.SetWinButtonEffect(_sceneType);
         _levelConditionLooker.CalculateWinValue();
         Enable();
+        _victorySound.Play();
     }
 
     public void ShowLose()

@@ -11,6 +11,7 @@ public class RunnerGame : MonoBehaviour
     [SerializeField] private ScoreCalculate _scoreCalculate;
     [SerializeField] private GameOverScreen _gameOverScreen;
     [SerializeField] private RunnerGameMover _mover;
+    [SerializeField] private AudioSource _spinningAudio;
 
     private Animal _animal;
     private float _totalTime;
@@ -23,6 +24,7 @@ public class RunnerGame : MonoBehaviour
         {
             obstacle.Collided += OnCollided;
         }
+        _mover.PositionReached += StopSpinningAudio;
     }
 
     private void OnDisable()
@@ -31,6 +33,7 @@ public class RunnerGame : MonoBehaviour
         {
             obstacle.Collided -= OnCollided;
         }
+        _mover.PositionReached -= StopSpinningAudio;
     }
 
     private void Start()
@@ -44,12 +47,15 @@ public class RunnerGame : MonoBehaviour
         {
             _animal.Animator.SetBool(AnimatorAnimalController.Params.IsSpin, false);
             _animal.Collider.direction = 0;
+            _spinningAudio.Pause();
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             _animal.Animator.SetBool(AnimatorAnimalController.Params.IsSpin, true);
             _animal.Collider.direction = 1;
+            if (_spinningAudio.isPlaying == false)
+                _spinningAudio.Play();
         }
     }
 
@@ -58,7 +64,10 @@ public class RunnerGame : MonoBehaviour
         _gameOverScreen.ShowLose();
         enabled = false;
         _mover.Stop();
+        StopSpinningAudio();
     }
+
+    private void StopSpinningAudio() => _spinningAudio.Stop();
 
     public void SetAnimal(Animal animal)
     {
