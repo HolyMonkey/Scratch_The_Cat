@@ -1,6 +1,3 @@
-using AppodealAds.Unity.Common;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +7,7 @@ public class AdsCoinMultiplyer : MonoBehaviour
 
     [SerializeField] private AdsActivator _adsActivator;
     [SerializeField] private CoinsFolder _coinsFolder;
+    [SerializeField] private int _multiplyer = 3;
 
     private void OnEnable()
     {
@@ -24,6 +22,6 @@ public class AdsCoinMultiplyer : MonoBehaviour
     public void OnVideoWatched()
     {
         _coinsFolder.AddCoins(_coinsFolder.LastAddedCoins);
-        CoinsMultiplyed?.Invoke(_coinsFolder.LastAddedCoins * 2);
+        CoinsMultiplyed?.Invoke(_coinsFolder.LastAddedCoins * _multiplyer);
     }
 }

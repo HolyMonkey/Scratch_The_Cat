@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'x2
+  m_text: 'x3
 
     Coins'
   m_isRightToLeft: 0

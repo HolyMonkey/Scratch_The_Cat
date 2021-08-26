@@ -39,6 +39,7 @@ public class GameOverScreen : MonoBehaviour
         _gameOverText.ShowWinText();
         _startButton.SetWinButtonEffect(_sceneType);
         _levelConditionLooker.CalculateWinValue();
+        _coinsMultiplyButton.gameObject.SetActive(true);
         Enable();
         _victorySound.Play();
     }
@@ -56,7 +57,7 @@ public class GameOverScreen : MonoBehaviour
     {
         _gameOverText.ShowEnergyLostText();
         _startButton.SetLoseEnergyButtonEffect();
-        _coinsMultiplyButton.gameObject.SetActive(false);
+        _coinsMultiplyButton.gameObject.SetActive(true);
     }
 
     private void Enable()
