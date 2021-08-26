@@ -1,33 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SceneNameFolder : MonoBehaviour
 {
-    private static Dictionary<SceneType, int> _nameByType = new Dictionary<SceneType, int>()
-    {
-        {SceneType.MouseLevel, 1},
-        {SceneType.MainMenu, 0},
-        {SceneType.DestroyLevel, 3},
-        {SceneType.FeedLevel, 4},
-        {SceneType.RunnerLevel, 6},
-        {SceneType.PetLevel, 2},
-        {SceneType.WashLevel, 5}
-    };
+    [SerializeField] private PlayerConditionFolder _conditionFolder;
+    [SerializeField] private SceneGroup[] _groups;
+    [SerializeField] private string _menuScene = "Menu";
 
-    public static readonly string[] SceneNames =
+    public string GetNextScene()
     {
-        "MouseGame",
-        "Menu",
-        "DestroyGame",
-        "FeedGame",
-        "PetGame",
-        "RunnerGame",
-        "WashGame"
-    };
-    
-    public static int GetSceneNumber(SceneType type)
-    {
-        return _nameByType[type];
+        PlayerConditionName condition = _conditionFolder.GetLowestCondition();
+        string[] possibleScenes = _groups.First(x => x.Condition == condition).Scenes;
+        return possibleScenes[UnityEngine.Random.Range(0, possibleScenes.Length)];
     }
+
+    public string GetMenuScene() => _menuScene;
 }

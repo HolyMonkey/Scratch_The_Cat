@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
 [RequireComponent(typeof(Animator))]
@@ -16,6 +13,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private LevelConditionLooker _levelConditionLooker;
     [SerializeField] private AdsCoinMultiplyer _coinMultiplyer;
     [SerializeField] private AudioSource _victorySound;
+    [SerializeField] private Button _coinsMultiplyButton;
 
     private CanvasGroup _canvasGroup;
     private Animator _animator;
@@ -50,6 +48,7 @@ public class GameOverScreen : MonoBehaviour
         _gameOverText.ShowLoseText();
         _startButton.SetLoseButtonEffect(_sceneType);
         _levelConditionLooker.CalculateLoosValue();
+        _coinsMultiplyButton.gameObject.SetActive(false);
         Enable();
     }
 
@@ -57,6 +56,7 @@ public class GameOverScreen : MonoBehaviour
     {
         _gameOverText.ShowEnergyLostText();
         _startButton.SetLoseEnergyButtonEffect();
+        _coinsMultiplyButton.gameObject.SetActive(false);
     }
 
     private void Enable()

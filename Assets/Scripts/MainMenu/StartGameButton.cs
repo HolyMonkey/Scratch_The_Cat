@@ -11,8 +11,8 @@ namespace MainMenu
         [SerializeField] private SceneType _sceneType;
         [SerializeField] private Button _button;
         [SerializeField] private PlayerConditionFolder _conditionFolder;
-        [SerializeField] private SceneGroup[] _groups;
         [SerializeField] private LowEnergyScreen _lowEnergyScreen;
+        [SerializeField] private SceneNameFolder _sceneNameFolder;
 
         private void OnEnable()
         {
@@ -27,16 +27,9 @@ namespace MainMenu
         private void LoadScene()
         {
             if (_conditionFolder.GetValueByConditionName(PlayerConditionName.Energy) >= _conditionFolder.LevelEnergyCost)
-                SceneManager.LoadScene(GetNeccessaryScene());
+                SceneManager.LoadScene(_sceneNameFolder.GetNextScene());
             else
                 _lowEnergyScreen.Enable();
-        }
-
-        private string GetNeccessaryScene()
-        {
-            PlayerConditionName condition = _conditionFolder.GetLowestCondition();
-            string[] possibleScenes = _groups.First(x => x.Condition == condition).Scenes;
-            return possibleScenes[UnityEngine.Random.Range(0, possibleScenes.Length)];
         }
     }
 }

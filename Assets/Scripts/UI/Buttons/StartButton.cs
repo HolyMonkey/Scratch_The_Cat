@@ -8,10 +8,13 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
     [SerializeField] private Sprite _energyButtonSprite;
-    
-    private Action ButtohHandler;
+    [SerializeField] private AdsActivator _adsActivator;
+    [SerializeField] private PlayerConditionViewMediator _conditionMediator;
+    [SerializeField] private SceneNameFolder _sceneNameFolder;
 
-    private int _nextSceneNumber;
+    private Action ButtohHandler;
+    private string _nextScene;
+    private bool _isLowEnergy;
     
     private void OnEnable()
     {
@@ -25,21 +28,14 @@ public class StartButton : MonoBehaviour
 
     public void SetLoseButtonEffect(SceneType type)
     {
-        _nextSceneNumber = SceneNameFolder.GetSceneNumber(type);
+        _nextScene = _sceneNameFolder.GetNextScene();
         ButtohHandler += ChangeLevel;
     }
 
     public void SetWinButtonEffect(SceneType type)
     {
-        do
-        {
-            _nextSceneNumber = GetRandomSceneNumber();
-        } while (_nextSceneNumber == SceneNameFolder.GetSceneNumber(type));
-        Debug.Log("Scene in folder = " + SceneNameFolder.GetSceneNumber(type));
-        Debug.Log("RandomNumber = " + _nextSceneNumber);
-
+        _nextScene = _sceneNameFolder.GetNextScene();
         ButtohHandler += ChangeLevel;
-
     }
 
     public void SetLoseEnergyButtonEffect()
@@ -50,36 +46,35 @@ public class StartButton : MonoBehaviour
         color.a = 1;
         colorBlock.disabledColor = color;
         _button.colors = colorBlock;
-        
-        _nextSceneNumber = GetRandomSceneNumber();
+
+        _isLowEnergy = true;
+        _nextScene = _sceneNameFolder.GetNextScene();
     }
 
     private void ChangeLevel()
     {
-        if (_nextSceneNumber == default)
-        {
-            _nextSceneNumber  = GetRandomSceneNumber();
-        }
-        SceneManager.LoadScene(_nextSceneNumber);
-    }
-
-    private void ChangeLevelWithAddEnergy()
-    {
-        if (_nextSceneNumber == default)
-        {
-            _nextSceneNumber  = GetRandomSceneNumber();
-        }
-        SceneManager.LoadScene(_nextSceneNumber);
+        SceneManager.LoadScene(_nextScene);
     }
 
     private void OnButtonClick()
     {
-        ButtohHandler?.Invoke();
-    }
-
-    private int GetRandomSceneNumber()
-    {
-        int number = Random.Range(0, SceneNameFolder.SceneNames.Length);
-        return number;
+        if (_isLowEnergy)
+        {
+            if (_adsActivator.IsRewardedVideoReady())
+            {
+                _adsActivator.ShowRewardedVideo();
+                _adsActivator.RewardedVideoWatched += () => _conditionMediator.ShowAfterAddFullEnergy();
+                _adsActivator.RewardedVideoWatched += ChangeLevel;
+            }
+            else
+            {
+                _nextScene = _sceneNameFolder.GetMenuScene();
+                ChangeLevel();
+            }
+        }
+        else
+        {
+            ButtohHandler?.Invoke();
+        }
     }
 }

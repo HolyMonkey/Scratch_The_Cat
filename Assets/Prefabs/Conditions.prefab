@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5047467147912706618}
   - component: {fileID: 7494586454305005586}
   - component: {fileID: 3802023178014148839}
+  - component: {fileID: 7340387095031180480}
   m_Layer: 0
   m_Name: Conditions
   m_TagString: Untagged
@@ -75,6 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d68a480644fc2a40a48355f3f292052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _conditionAddValue: 20
+  _conditionDistractValue: 5
+  _energyDistractValue: 20
 --- !u!114 &3802023178014148839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,3 +93,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _conditionViews: []
   _playerConditionFolder: {fileID: 7494586454305005586}
+--- !u!114 &7340387095031180480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411568789721387352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4fe63ad57b8404d93331e0a0dd2f96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _conditionFolder: {fileID: 7494586454305005586}
+  _groups:
+  - _scenes:
+    - FeedGame
+    _condition: 0
+  - _scenes:
+    - DestroyGame
+    - MouseGame
+    - RunnerGame
+    - PetGame
+    _condition: 2
+  - _scenes:
+    - WashGame
+    _condition: 3

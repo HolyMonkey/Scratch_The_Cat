@@ -22,6 +22,8 @@ public class AdsActivator : MonoBehaviour, IRewardedVideoAdListener
             Appodeal.show(Appodeal.REWARDED_VIDEO);
     }
 
+    public bool IsRewardedVideoReady() => Appodeal.isLoaded(Appodeal.REWARDED_VIDEO);
+
     public void onRewardedVideoLoaded(bool precache)
     {
         
