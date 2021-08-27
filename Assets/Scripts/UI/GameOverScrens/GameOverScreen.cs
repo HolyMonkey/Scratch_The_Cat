@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
@@ -14,6 +15,7 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] private AdsCoinMultiplyer _coinMultiplyer;
     [SerializeField] private AudioSource _victorySound;
     [SerializeField] private Button _coinsMultiplyButton;
+    [SerializeField] private AppMetricaStatistics _metricaStats;
 
     private CanvasGroup _canvasGroup;
     private Animator _animator;
@@ -46,6 +48,8 @@ public class GameOverScreen : MonoBehaviour
 
     public void ShowLose()
     {
+        _metricaStats.SendLevelLose(SceneManager.GetActiveScene().name);
+
         _gameOverText.ShowLoseText();
         _startButton.SetLoseButtonEffect(_sceneType);
         _levelConditionLooker.CalculateLoosValue();

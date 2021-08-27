@@ -277,6 +277,7 @@ MonoBehaviour:
   _adsActivator: {fileID: 0}
   _conditionMediator: {fileID: 0}
   _sceneNameFolder: {fileID: 0}
+  _metricaStats: {fileID: 0}
 --- !u!1 &3397201606520657901
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 3397201607896039112}
+  _metricStats: {fileID: 0}
+  _nextLevelButton: {fileID: 3397201606199486777}
 --- !u!1 &4206653770515299987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1437,7 @@ MonoBehaviour:
   _coinMultiplyer: {fileID: 702303975}
   _victorySound: {fileID: 2919094552884751672}
   _coinsMultiplyButton: {fileID: 3356941634319633785}
+  _metricaStats: {fileID: 0}
 --- !u!114 &2111353207644471855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1483,6 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _adsActivator: {fileID: 3397201606861763786}
   _coinsFolder: {fileID: 0}
+  _multiplyer: 3
 --- !u!82 &2919094552884751672
 AudioSource:
   m_ObjectHideFlags: 0

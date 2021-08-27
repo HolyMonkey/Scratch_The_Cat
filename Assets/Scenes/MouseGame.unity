@@ -2372,6 +2372,11 @@ PrefabInstance:
       objectReference: {fileID: 319591971}
     - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 1868426851}
+    - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _sceneNameFolder
       value: 
       objectReference: {fileID: 444924291}
@@ -2380,6 +2385,11 @@ PrefabInstance:
       propertyPath: _conditionMediator
       value: 
       objectReference: {fileID: 444924292}
+    - target: {fileID: 3397201607896039115, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _metricStats
+      value: 
+      objectReference: {fileID: 1868426851}
     - target: {fileID: 4206653771543209520, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2502,6 +2512,11 @@ PrefabInstance:
       objectReference: {fileID: 3843343263408921501}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 1868426851}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _levelConditionLooker
       value: 
       objectReference: {fileID: 444924290}
@@ -2529,6 +2544,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342bd7dd63276e842b3d0b90d92b84d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &319591972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 702303975, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+    type: 3}
+  m_PrefabInstance: {fileID: 319591969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37877365a122190438b25e5d520c388f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &389327742
@@ -11618,6 +11645,7 @@ GameObject:
   - component: {fileID: 1868426841}
   - component: {fileID: 1868426840}
   - component: {fileID: 1868426846}
+  - component: {fileID: 1868426851}
   m_Layer: 0
   m_Name: LevelLooker
   m_TagString: Untagged
@@ -11793,6 +11821,20 @@ MonoBehaviour:
   _normalSpeed: 5
   _speedMultipler: 0.286
   _playerPositionLooker: {fileID: 1868426844}
+--- !u!114 &1868426851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868426839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b911081185786cb46b86501a9e1e6926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinMultiplyer: {fileID: 319591972}
+  _sceneNameFolder: {fileID: 444924291}
 --- !u!1001 &1871177829
 PrefabInstance:
   m_ObjectHideFlags: 0

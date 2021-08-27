@@ -19,6 +19,7 @@ public class AdsEnergyFiller : MonoBehaviour
 
     private void OnVideoWatched()
 	{
+        AppMetricaStatistics.SendRewarded(RewardedVideoPlacement.Energy);
         _conditionMediator.ShowAfterAddFullEnergy();
 	}
 }

@@ -13,6 +13,7 @@ namespace MainMenu
         [SerializeField] private PlayerConditionFolder _conditionFolder;
         [SerializeField] private LowEnergyScreen _lowEnergyScreen;
         [SerializeField] private SceneNameFolder _sceneNameFolder;
+        [SerializeField] private AppMetricaStatistics _metricaStats;
 
         private void OnEnable()
         {
@@ -27,9 +28,15 @@ namespace MainMenu
         private void LoadScene()
         {
             if (_conditionFolder.GetValueByConditionName(PlayerConditionName.Energy) >= _conditionFolder.LevelEnergyCost)
-                SceneManager.LoadScene(_sceneNameFolder.GetNextScene());
+            {
+                string scene = _sceneNameFolder.GetNextScene();
+                _metricaStats.SendLevelStart(scene);
+                SceneManager.LoadScene(scene);
+            }
             else
+            {
                 _lowEnergyScreen.Enable();
+            }
         }
     }
 }

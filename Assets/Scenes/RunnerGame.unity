@@ -707,6 +707,7 @@ GameObject:
   - component: {fileID: 240916389}
   - component: {fileID: 240916388}
   - component: {fileID: 240916387}
+  - component: {fileID: 240916393}
   m_Layer: 0
   m_Name: LevelLooker
   m_TagString: Untagged
@@ -828,6 +829,20 @@ MonoBehaviour:
   _progressSlider: {fileID: 4187158307948899163}
   _currentScoreView: {fileID: 375132743}
   _sliderShake: {fileID: 4187158307948899157}
+--- !u!114 &240916393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240916384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b911081185786cb46b86501a9e1e6926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinMultiplyer: {fileID: 702303974}
+  _sceneNameFolder: {fileID: 711195784}
 --- !u!114 &240916394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2675,6 +2690,11 @@ PrefabInstance:
       objectReference: {fileID: 702303973}
     - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 240916393}
+    - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _sceneNameFolder
       value: 
       objectReference: {fileID: 711195784}
@@ -2683,6 +2703,11 @@ PrefabInstance:
       propertyPath: _conditionMediator
       value: 
       objectReference: {fileID: 711195785}
+    - target: {fileID: 3397201607896039115, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _metricStats
+      value: 
+      objectReference: {fileID: 240916393}
     - target: {fileID: 4206653771543209520, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_Pivot.x
@@ -2800,6 +2825,11 @@ PrefabInstance:
       objectReference: {fileID: 240916387}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 240916393}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _levelConditionLooker
       value: 
       objectReference: {fileID: 711195783}
@@ -2827,6 +2857,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342bd7dd63276e842b3d0b90d92b84d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &702303974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 702303975, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+    type: 3}
+  m_PrefabInstance: {fileID: 702303971}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37877365a122190438b25e5d520c388f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &705977984 stripped

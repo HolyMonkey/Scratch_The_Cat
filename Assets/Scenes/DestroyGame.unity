@@ -1648,6 +1648,7 @@ GameObject:
   - component: {fileID: 411606119}
   - component: {fileID: 411606118}
   - component: {fileID: 411606117}
+  - component: {fileID: 411606126}
   m_Layer: 0
   m_Name: LevelLooker
   m_TagString: Untagged
@@ -1827,6 +1828,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreCalculate: {fileID: 411606118}
+--- !u!114 &411606126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411606115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b911081185786cb46b86501a9e1e6926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinMultiplyer: {fileID: 1169000231}
+  _sceneNameFolder: {fileID: 1702071719020717031}
 --- !u!1 &412834266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5217,6 +5232,11 @@ PrefabInstance:
       objectReference: {fileID: 1169000230}
     - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 411606126}
+    - target: {fileID: 3397201606199486777, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _sceneNameFolder
       value: 
       objectReference: {fileID: 1702071719020717031}
@@ -5225,6 +5245,11 @@ PrefabInstance:
       propertyPath: _conditionMediator
       value: 
       objectReference: {fileID: 1702071719020717029}
+    - target: {fileID: 3397201607896039115, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
+      propertyPath: _metricStats
+      value: 
+      objectReference: {fileID: 411606126}
     - target: {fileID: 4206653770515299984, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5372,6 +5397,11 @@ PrefabInstance:
       objectReference: {fileID: 612451281}
     - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
         type: 3}
+      propertyPath: _metricaStats
+      value: 
+      objectReference: {fileID: 411606126}
+    - target: {fileID: 4206653771543209523, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+        type: 3}
       propertyPath: _levelConditionLooker
       value: 
       objectReference: {fileID: 1534272288}
@@ -5411,6 +5441,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 342bd7dd63276e842b3d0b90d92b84d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1169000231 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 702303975, guid: 3128dcc9ff78e0c41aacdb1637b84346,
+    type: 3}
+  m_PrefabInstance: {fileID: 1169000229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37877365a122190438b25e5d520c388f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1267639047 stripped

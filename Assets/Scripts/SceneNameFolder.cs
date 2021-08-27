@@ -5,6 +5,16 @@ using UnityEngine;
 
 public class SceneNameFolder : MonoBehaviour
 {
+    private static Dictionary<string, string> _levelNames = new Dictionary<string, string>()
+    {
+        { "DestroyGame", "destroy_game" },
+        { "FeedGame", "feed_game" },
+        { "MouseGame", "mouse_game" },
+        { "PetGame", "pet_game" },
+        { "RunnerGame", "runner_game" },
+        { "WashGame", "wash_game" },
+    };
+
     [SerializeField] private PlayerConditionFolder _conditionFolder;
     [SerializeField] private SceneGroup[] _groups;
     [SerializeField] private string _menuScene = "Menu";
@@ -17,4 +27,6 @@ public class SceneNameFolder : MonoBehaviour
     }
 
     public string GetMenuScene() => _menuScene;
+
+    public static string GetLevelName(string sceneName) => _levelNames[sceneName];
 }

@@ -76,6 +76,7 @@ public class UnlockButton : MonoBehaviour
             PlayerPrefs.SetInt(PlayerPrefName.NewAnimalCost, _currentUnlockValue);
             ShowCurrentButton();
             AnimalUnlocked?.Invoke(newAnimalType);
+            AppMetricaStatistics.SendUnlockRandom();
         }
 
         if (AreAnimalsAvailable() == false)

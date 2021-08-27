@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 public class StartButton : MonoBehaviour
 {
@@ -11,10 +10,14 @@ public class StartButton : MonoBehaviour
     [SerializeField] private AdsActivator _adsActivator;
     [SerializeField] private PlayerConditionViewMediator _conditionMediator;
     [SerializeField] private SceneNameFolder _sceneNameFolder;
+    [SerializeField] private AppMetricaStatistics _metricaStats;
+
+    public bool IsWin => _isWin;
 
     private Action ButtohHandler;
     private string _nextScene;
     private bool _isLowEnergy;
+    private bool _isWin;
     
     private void OnEnable()
     {
@@ -28,12 +31,14 @@ public class StartButton : MonoBehaviour
 
     public void SetLoseButtonEffect(SceneType type)
     {
+        _isWin = false;
         _nextScene = _sceneNameFolder.GetNextScene();
         ButtohHandler += ChangeLevel;
     }
 
     public void SetWinButtonEffect(SceneType type)
     {
+        _isWin = true;
         _nextScene = _sceneNameFolder.GetNextScene();
         ButtohHandler += ChangeLevel;
     }
@@ -53,6 +58,11 @@ public class StartButton : MonoBehaviour
 
     private void ChangeLevel()
     {
+        if (_isWin)
+            _metricaStats.SendLevelWin(SceneManager.GetActiveScene().name);
+
+        if (_nextScene != _sceneNameFolder.GetMenuScene())
+            _metricaStats.SendLevelStart(_nextScene);
         SceneManager.LoadScene(_nextScene);
     }
 
@@ -63,7 +73,7 @@ public class StartButton : MonoBehaviour
             if (_adsActivator.IsRewardedVideoReady())
             {
                 _adsActivator.ShowRewardedVideo();
-                _adsActivator.RewardedVideoWatched += () => _conditionMediator.ShowAfterAddFullEnergy();
+                _adsActivator.RewardedVideoWatched += OnRewardedVideoWatched;
                 _adsActivator.RewardedVideoWatched += ChangeLevel;
             }
             else
@@ -76,5 +86,11 @@ public class StartButton : MonoBehaviour
         {
             ButtohHandler?.Invoke();
         }
+    }
+
+    private void OnRewardedVideoWatched()
+    {
+        AppMetricaStatistics.SendRewarded(RewardedVideoPlacement.Energy);
+        _conditionMediator.ShowAfterAddFullEnergy();
     }
 }

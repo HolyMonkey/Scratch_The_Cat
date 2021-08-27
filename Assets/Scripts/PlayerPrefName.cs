@@ -9,4 +9,5 @@ public static class PlayerPrefName
     public const string UnlockAnimal = nameof(UnlockAnimal);
     public const string NewAnimalCost = nameof(NewAnimalCost);
     public const string CurrentAnimal = nameof(CurrentAnimal);
+    public const string LevelCount = nameof(LevelCount);
 }
